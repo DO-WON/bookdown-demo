@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Visualizastion in R | KOSSDA Introduction to R</title>
+  <meta name="description" content="Chapter 4 Visualizastion in R | KOSSDA Introduction to R" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Visualizastion in R | KOSSDA Introduction to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Visualizastion in R | KOSSDA Introduction to R" />
+  
+  
+  
+
+<meta name="author" content="Do Won Kim, Hyowon Kim" />
+
+
+<meta name="date" content="2022-12-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-management.html"/>
+<link rel="next" href="further-tips.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">KOSSDA Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html"><i class="fa fa-check"></i><b>2</b> Basic programming in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#r-문법의-기초-communicating-in-r-language"><i class="fa fa-check"></i><b>2.1</b> R 문법의 기초 <strong><em>Communicating in R language</em></strong></a></li>
+<li class="chapter" data-level="2.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-유형-data-type"><i class="fa fa-check"></i><b>2.2</b> 데이터 유형 <strong><em>Data type</em></strong></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#숫자형-데이터numeric"><i class="fa fa-check"></i><b>2.2.1</b> 숫자형 데이터(numeric)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#문자형-데이터characterstringtext"><i class="fa fa-check"></i><b>2.2.2</b> 문자형 데이터(character/string/text)</a></li>
+<li class="chapter" data-level="2.2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#날짜형-데이터-as.date"><i class="fa fa-check"></i><b>2.2.3</b> 날짜형 데이터 <code>as.Date()</code></a></li>
+<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#na형과-null형"><i class="fa fa-check"></i><b>2.2.4</b> NA형과 NULL형</a></li>
+<li class="chapter" data-level="2.2.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.5</b> 논리형 데이터(logical: True or False)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#변수-유형-variable-type"><i class="fa fa-check"></i><b>2.3</b> 변수 유형 <strong><em>Variable type</em></strong></a></li>
+<li class="chapter" data-level="2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-구조-data-structure"><i class="fa fa-check"></i><b>2.4</b> 데이터 구조 <strong><em>Data structure</em></strong></a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#벡터vector"><i class="fa fa-check"></i><b>2.4.1</b> 벡터(Vector)</a></li>
+<li class="chapter" data-level="2.4.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#행렬matrix"><i class="fa fa-check"></i><b>2.4.2</b> 행렬(Matrix)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#배열array"><i class="fa fa-check"></i><b>2.4.3</b> 배열(Array)</a></li>
+<li class="chapter" data-level="2.4.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#리스트list"><i class="fa fa-check"></i><b>2.4.4</b> 리스트(List)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-프레임data-frame"><i class="fa fa-check"></i><b>2.4.5</b> 데이터 프레임(Data Frame)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#r-패키지와-라이브러리-r-packages-and-libraries"><i class="fa fa-check"></i><b>2.5</b> R 패키지와 라이브러리 <strong><em>R packages and libraries</em></strong></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#패키지-설치-방법"><i class="fa fa-check"></i><b>2.5.1</b> 패키지 설치 방법</a></li>
+<li class="chapter" data-level="2.5.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#패키지-사용하기"><i class="fa fa-check"></i><b>2.5.2</b> 패키지 사용하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>3</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-management.html"><a href="data-management.html#내장데이터-불러오기-loading-build-in-data"><i class="fa fa-check"></i><b>3.1</b> 내장데이터 불러오기 <strong><em>Loading build-in data</em></strong></a></li>
+<li class="chapter" data-level="3.2" data-path="data-management.html"><a href="data-management.html#데이터-저장하고-불러오기-exporting-and-importing-data"><i class="fa fa-check"></i><b>3.2</b> 데이터 저장하고 불러오기 <strong><em>Exporting and importing data</em></strong></a></li>
+<li class="chapter" data-level="3.3" data-path="data-management.html"><a href="data-management.html#데이터-전처리-data-wrangling-pre-processing"><i class="fa fa-check"></i><b>3.3</b> 데이터 전처리 <strong><em>Data wrangling &amp; pre-processing</em></strong></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data-management.html"><a href="data-management.html#indexing-데이터프레임에서-원하는-행-열-추출하기"><i class="fa fa-check"></i><b>3.3.1</b> Indexing: 데이터프레임에서 원하는 행, 열 추출하기</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data-management.html"><a href="data-management.html#preprocessing-변수-전처리하기"><i class="fa fa-check"></i><b>3.3.2</b> Preprocessing: 변수 전처리하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizastion-in-r.html"><a href="visualizastion-in-r.html"><i class="fa fa-check"></i><b>4</b> Visualizastion in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="visualizastion-in-r.html"><a href="visualizastion-in-r.html#r-base-plot"><i class="fa fa-check"></i><b>4.1</b> <strong><em>R base plot</em></strong></a></li>
+<li class="chapter" data-level="4.2" data-path="visualizastion-in-r.html"><a href="visualizastion-in-r.html#tidyverse---ggplot2"><i class="fa fa-check"></i><b>4.2</b> <strong><em>Tidyverse - ggplot2</em></strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="further-tips.html"><a href="further-tips.html"><i class="fa fa-check"></i><b>5</b> Further Tips</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/DO-WON/KOSSDA_Intro-to-R" target="blank">Github Version</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">KOSSDA Introduction to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizastion-in-r" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Visualizastion in R<a href="visualizastion-in-r.html#visualizastion-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>먼저 R에서 기본으로 제공하는 base 함수들로 시각화 연습을 해본 후, tidyverse의 ggplot2() 를 통해 시각화하는 연습을 해보겠습니다.</p>
+<div id="r-base-plot" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> <strong><em>R base plot</em></strong><a href="visualizastion-in-r.html#r-base-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Base 함수들 중 자주 쓰는 것들은 다음과 같습니다: plot(), hist(), barplot(), boxplot(). 이 함수들을 사용하여 gapminder 데이터를 다양하게 시각화해 봅시다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualizastion-in-r.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot() : 변수들 간 관계를 한 눈에 볼 수 있는 이변량 그래프 그리기 (산점도;                       scatterplot) </span></span>
+<span id="cb1-2"><a href="visualizastion-in-r.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gapminder)</span></code></pre></div>
+<p><img src="images/4-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>예) 기대수명이 증가할수록 인구는 어떻게 변화할까요? x축은 lifeExp, y축은 pop의 값들을 산점도로 그려 표현한 것이 바로 5행 4열에 있는 그래프입니다. 패턴을 보니 lifeExp 변수와 pop 변수 간 양의 상관관계가 있습니다. 즉 기대수명이 높아질수록 인구는 증가하는 추세를 보입니다.</p>
+<p>이 두 변수 간 그래프를 확대해 볼까요? <code>plot(x축, y축)</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="visualizastion-in-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gapminder<span class="sc">$</span>lifeExp, gapminder<span class="sc">$</span>pop) </span>
+<span id="cb2-2"><a href="visualizastion-in-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="visualizastion-in-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># options 추가 </span></span>
+<span id="cb2-4"><a href="visualizastion-in-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gapminder<span class="sc">$</span>lifeExp, gapminder<span class="sc">$</span>pop, <span class="at">col=</span>gapminder<span class="sc">$</span>country, <span class="at">pch=</span><span class="dv">19</span>, </span>
+<span id="cb2-5"><a href="visualizastion-in-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Population&quot;</span>, </span>
+<span id="cb2-6"><a href="visualizastion-in-r.html#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">main=</span><span class="st">&quot;Relationship between life expectancy and population&quot;</span>)</span></code></pre></div>
+<p><img src="images/4-2.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>연속형 변수의 빈도 분포를 살펴보는 데에는 hist() 함수를 사용합니다. 기대수명 변수의 히스토그램을 그려봅시다.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="visualizastion-in-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gapminder<span class="sc">$</span>lifeExp)</span>
+<span id="cb3-2"><a href="visualizastion-in-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="visualizastion-in-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># customize </span></span>
+<span id="cb3-4"><a href="visualizastion-in-r.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>() <span class="co"># check available colors in R </span></span>
+<span id="cb3-5"><a href="visualizastion-in-r.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(gapminder<span class="sc">$</span>lifeExp, <span class="at">col=</span><span class="st">&quot;whitesmoke&quot;</span>, </span>
+<span id="cb3-6"><a href="visualizastion-in-r.html#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">xlab=</span><span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">main=</span><span class="st">&quot;Histogram of Life Expectancy&quot;</span>)</span>
+<span id="cb3-7"><a href="visualizastion-in-r.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">mean</span>(gapminder<span class="sc">$</span>lifeExp), <span class="at">col=</span><span class="st">&quot;wheat4&quot;</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>) <span class="co"># add line</span></span></code></pre></div>
+<p><img src="images/4-3.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>다음은 범주형 변수의 분포를 살펴보기에 좋은 barplot() 입니다. 각 대륙에 해당하는 값들이 몇 번 등장하는지를 시각화해봅시다.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="visualizastion-in-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(gapminder<span class="sc">$</span>continent) <span class="co"># 빈도표 </span></span>
+<span id="cb4-2"><a href="visualizastion-in-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="visualizastion-in-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 빈도표 자체를 input으로 넣어서 barplot 그리기</span></span>
+<span id="cb4-4"><a href="visualizastion-in-r.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(gapminder<span class="sc">$</span>continent)) </span>
+<span id="cb4-5"><a href="visualizastion-in-r.html#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="visualizastion-in-r.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(gapminder<span class="sc">$</span>continent), </span>
+<span id="cb4-7"><a href="visualizastion-in-r.html#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>,</span>
+<span id="cb4-8"><a href="visualizastion-in-r.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;lightcyan&quot;</span>, <span class="st">&quot;lavender&quot;</span>, <span class="st">&quot;whitesmoke&quot;</span>),</span>
+<span id="cb4-9"><a href="visualizastion-in-r.html#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Barplot&quot;</span>)</span></code></pre></div>
+<p><img src="images/4-4.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>마지막으로 범주형 변수 별로 연속형 변수의 분포를 살펴보기에 좋은 boxplot() 입니다. 각 대륙 별로 기대수명의 분포를 시각화해봅시다.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="visualizastion-in-r.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lifeExp <span class="sc">~</span> continent , <span class="at">data =</span> gapminder) </span>
+<span id="cb5-2"><a href="visualizastion-in-r.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="visualizastion-in-r.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(lifeExp <span class="sc">~</span> continent , <span class="at">data =</span> gapminder,</span>
+<span id="cb5-4"><a href="visualizastion-in-r.html#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;mistyrose&quot;</span>,</span>
+<span id="cb5-5"><a href="visualizastion-in-r.html#cb5-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;lightcyan&quot;</span>, <span class="st">&quot;lavender&quot;</span>, <span class="st">&quot;whitesmoke&quot;</span>),</span>
+<span id="cb5-6"><a href="visualizastion-in-r.html#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&#39;Boxplot&#39;</span>,</span>
+<span id="cb5-7"><a href="visualizastion-in-r.html#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Continent&quot;</span>, </span>
+<span id="cb5-8"><a href="visualizastion-in-r.html#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Life Expectancy&quot;</span>)</span></code></pre></div>
+<p><img src="images/4-5.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tidyverse---ggplot2" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> <strong><em>Tidyverse - ggplot2</em></strong><a href="visualizastion-in-r.html#tidyverse---ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>다음은<strong><code>tidyverse</code></strong>의 <code>ggplot2</code> 를 통한 시각화를 연습해 보겠습니다. <code>ggplot2</code>의 “<em>GG”는 Gramar of Graphics</em> 를 의미합니다. <code>%&gt;%</code> (파이프 연산자)를 통해 층을 겹겹이 쌓아올려 효율적인 시각화가 가능하며, 여러가지 테마를 적용하여 customize할 수 있다는 점이 장점입니다 (반대로 말하면, 자유도가 높다는 게 처음 배울 때 진입장벽으로 작용할 수 있습니다). 하나씩 천천히 해봅시다!</p>
+<p>기본적인 문법 구조는 다음과 같습니다:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="visualizastion-in-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#데이터 </span></span>
+<span id="cb6-2"><a href="visualizastion-in-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="visualizastion-in-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>x축에 올 변수 이름, <span class="at">y=</span>y축에 올 변수 이름)) <span class="sc">+</span> <span class="co"># aesthetic - coordination space 그리기 </span></span>
+<span id="cb6-4"><a href="visualizastion-in-r.html#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co"># geometry - geom_으로 시작하는 함수 입력 </span></span>
+<span id="cb6-5"><a href="visualizastion-in-r.html#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>() <span class="co"># theme 적용 - 꾸미기</span></span></code></pre></div>
+<p>ggplot() 함수를 통해 축을 설정하고 좌표 공간을 먼저 만들어 주신 후에는 파이프 연산자가 아닌 +로 연결을 해주세요.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="visualizastion-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scatterplot</span></span>
+<span id="cb7-2"><a href="visualizastion-in-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># basic form: </span></span>
+<span id="cb7-3"><a href="visualizastion-in-r.html#cb7-3" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="visualizastion-in-r.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span>pop)) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="visualizastion-in-r.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb7-6"><a href="visualizastion-in-r.html#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="visualizastion-in-r.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># color by continent: </span></span>
+<span id="cb7-8"><a href="visualizastion-in-r.html#cb7-8" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb7-9"><a href="visualizastion-in-r.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span>pop, <span class="at">col=</span>continent)) <span class="sc">+</span> </span>
+<span id="cb7-10"><a href="visualizastion-in-r.html#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="images/4-6.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="visualizastion-in-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># theme: </span></span>
+<span id="cb8-2"><a href="visualizastion-in-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 아래의 패키지를 설치해 주시고, 불러와 주세요:</span></span>
+<span id="cb8-3"><a href="visualizastion-in-r.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggthemes&quot;</span>)</span>
+<span id="cb8-4"><a href="visualizastion-in-r.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb8-5"><a href="visualizastion-in-r.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb8-6"><a href="visualizastion-in-r.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr) </span>
+<span id="cb8-7"><a href="visualizastion-in-r.html#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="visualizastion-in-r.html#cb8-8" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb8-9"><a href="visualizastion-in-r.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span>pop, <span class="at">col=</span>continent)) <span class="sc">+</span> </span>
+<span id="cb8-10"><a href="visualizastion-in-r.html#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-11"><a href="visualizastion-in-r.html#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pander</span>() <span class="sc">+</span> <span class="co"># 테마 설정 </span></span>
+<span id="cb8-12"><a href="visualizastion-in-r.html#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="sc">+</span> <span class="co"># x축 라벨</span></span>
+<span id="cb8-13"><a href="visualizastion-in-r.html#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Population&quot;</span>)  <span class="co"># y축 라벨</span></span>
+<span id="cb8-14"><a href="visualizastion-in-r.html#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="visualizastion-in-r.html#cb8-15" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb8-16"><a href="visualizastion-in-r.html#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span>pop, <span class="at">col=</span>continent)) <span class="sc">+</span> </span>
+<span id="cb8-17"><a href="visualizastion-in-r.html#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-18"><a href="visualizastion-in-r.html#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pander</span>() <span class="sc">+</span> </span>
+<span id="cb8-19"><a href="visualizastion-in-r.html#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-20"><a href="visualizastion-in-r.html#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Population&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-21"><a href="visualizastion-in-r.html#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Relationship between life expectancy and population&quot;</span>) <span class="sc">+</span> <span class="co"># 그래프 제목 </span></span>
+<span id="cb8-22"><a href="visualizastion-in-r.html#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span> <span class="co"># 범례 위치 </span></span>
+<span id="cb8-23"><a href="visualizastion-in-r.html#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_wsj</span>() <span class="co"># 색상 테마 적용 </span></span></code></pre></div>
+<p><img src="images/4-7.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>대륙별로 따로 그리고 싶다면: facet_grid() 함수를 추가. (자매품: facet_wrap() 도 있음)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="visualizastion-in-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="visualizastion-in-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>lifeExp, <span class="at">y=</span>pop, <span class="at">col=</span>continent)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="visualizastion-in-r.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a href="visualizastion-in-r.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pander</span>() <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="visualizastion-in-r.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="visualizastion-in-r.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Population&quot;</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="visualizastion-in-r.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Relationship between life expectancy and population&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb9-8"><a href="visualizastion-in-r.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span>  <span class="co"># 범례 삭제 </span></span>
+<span id="cb9-9"><a href="visualizastion-in-r.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_wsj</span>() <span class="sc">+</span></span>
+<span id="cb9-10"><a href="visualizastion-in-r.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span>continent) <span class="co"># 대륙 별로 따로 grid를 설정 </span></span></code></pre></div>
+<p><img src="images/4-8.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>다음은 기대수명 변수의 히스토그램을 그려봅시다.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="visualizastion-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="visualizastion-in-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>lifeExp)) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="visualizastion-in-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb10-4"><a href="visualizastion-in-r.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_pander</span>()</span>
+<span id="cb10-5"><a href="visualizastion-in-r.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>)</span></code></pre></div>
+<p><img src="images/4-9.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>바 그래프를 그려 봅시다. 대륙 별로 gdpPercap 변수의 평균을 계산하여 gdppc 변수를 새로 만들어 주신 후, x축에는 대륙, y축에는 gdppc 평균 값이 오도록 축을 설정해 주세요. 이번에는 Stata 테마를 적용해 보겠습니다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="visualizastion-in-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="visualizastion-in-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span> <span class="co"># continent 별로 </span></span>
+<span id="cb11-3"><a href="visualizastion-in-r.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( </span>
+<span id="cb11-4"><a href="visualizastion-in-r.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">gdppc =</span> <span class="fu">mean</span>(gdpPercap) <span class="co"># gdpPercap 변수의 평균 값을 취해 gdppc 변수에 넣어라 </span></span>
+<span id="cb11-5"><a href="visualizastion-in-r.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span>  <span class="co"># 이 데이터를 기반으로 ggplot을 그리자 </span></span>
+<span id="cb11-6"><a href="visualizastion-in-r.html#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent, <span class="at">y=</span>gdppc, <span class="at">fill=</span>continent)) <span class="sc">+</span> <span class="co"># 좌표 설정 </span></span>
+<span id="cb11-7"><a href="visualizastion-in-r.html#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="co"># 바 그래프 그려 넣을 것임을 알려주고, </span></span>
+<span id="cb11-8"><a href="visualizastion-in-r.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_stata</span>() <span class="sc">+</span> <span class="co"># 테마 설정 </span></span>
+<span id="cb11-9"><a href="visualizastion-in-r.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_stata</span>() <span class="co"># 대륙 별로 색상을 채워 넣을 때 색상 테마 또한 설정</span></span></code></pre></div>
+<p><img src="images/4-10.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>마지막으로 각 대륙 별로 기대수명의 분포를 박스플롯으로 시각화해봅시다. 테마는 미니멀 테마로 설정하고, 범례는 제거해 줍시다.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="visualizastion-in-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="visualizastion-in-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent, <span class="at">y=</span>lifeExp, <span class="at">fill=</span>continent)) <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="visualizastion-in-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="visualizastion-in-r.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-5"><a href="visualizastion-in-r.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="er">)</span></span></code></pre></div>
+<p><img src="images/4-11.png" width="80%" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="further-tips.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-method.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

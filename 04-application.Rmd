@@ -1,0 +1,5 @@
+# Further Tips
+
+다음은 R을 익힐 때 유용한 소스들입니다.
+
+[![R for Data Science](images/5-1.png){width="30%" height="20%"}](https://r4ds.had.co.nz/index.html) [![R for Data Science](images/5-2.jpg){width="30%" height="30%"}](https://r-graphics.org/) [![R for Data Science](images/5-3.jpg){width="30%" height="20%"}](https://ggplot2-book.org/index.html)

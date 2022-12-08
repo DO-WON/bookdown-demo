@@ -1,0 +1,26 @@
+---
+title: "KOSSDA Introduction to R"
+author: "Do Won Kim, Hyowon Kim"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::html_book
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: ""
+---
+
+# Prerequisites
+
+이 튜토리얼은 코스다 수강생들을 위한 R 기초 수업 자료입니다. `R`과 `RStudio`를 설치하는 방법, 작업 공간을 관리하는 방법은 다음의 링크를 참고해 주시길 바랍니다:
+
+<li><a href="https://github.com/DO-WON/KOSSDA_Intro-to-R/blob/main/Introduction%20to%20R.md" target="blank">Link </a></li>
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
