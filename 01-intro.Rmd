@@ -32,6 +32,11 @@ knitr::include_graphics('images/image1.png')
         									# "" 주의
         var4 <- as.Date("2022-12-01") # 날짜 데이터 담기
         var5 <- "Hello world" # 문자열 데이터 담기
+        
+        # R is case sensitive 
+        age <- 20 # age 라는 변수에 숫자 20 담기
+        Age <- 50 # Age라는 변수에 숫자 50 담기
+        			  	# age and Age are different
 ```
 
 ```{r , results='hide',eval=FALSE}
@@ -49,9 +54,42 @@ knitr::include_graphics('images/image1.png')
 ### 숫자형 데이터(numeric)
 
 ```{r , results='hide',eval=FALSE}
-        age <- 20 # age 라는 변수에 숫자 20 담기
-        Age <- 50 # Age라는 변수에 숫자 50 담기
-        					# R is case sensitive ; age and Age are different
+      x <- 100 # assign a number to the variable named x 
+      class(x) # check the class of x 
+      class(5,000) #에러 확인! 숫자 중에는 ,(콤마) 가 없음
+
+        #연산 가능
+        2+3 
+        2*3
+        2/3
+        2^3
+        10%%3
+        
+        # square root
+        sqrt(2)
+
+        # round to two decimal places 
+        round(1.41421, 2) 
+
+        # round down to nearest integer
+        floor(1.41421)
+
+        # absolute value
+        abs(-2) 
+        
+        # exponential 
+        exp(2) 
+        
+        # logarithm
+        log(2)  
+        
+        # assign to a variable and use these variables to calculate
+        height <- 170
+        weight <- 60 
+        
+        # BMI = weight / height^2 (in meter) 
+        BMI <- weight / (height/100)^2  
+
 ```
 
 ### 문자형 데이터(character/string/text)
@@ -91,24 +129,6 @@ knitr::include_graphics('images/image1.png')
         difftime(date1, date2)
 ```
 
-### NA형과 NULL형
-
--   NA(Not Applicable)형: 학년 변수에 1, 2, 3, 4 등의 값들이 들어와야 하는데 "손흥민"같은 문자형 값이 들어온 경우.
--   NULL(Not Available)형: 데이터 값이 아예 없다는 말. 즉 비어 있음. NA와 달리 연산을 하면 NULL값을 자동으로 제외시키고 연산을 진행함.
-
-```{r , results='hide'}
-        no1 <- 3
-        no2 <- NA
-        no1 + no2 # 연산 결과를 NA로 만들어 버림
-                
-        sum(1, 2, NA)
-        sum(1, 2, NULL) # NULL값을 자동으로 제외시키고 연산을 진행함
-                
-        x <- NA
-        sum(1, 2, x)
-        sum(1, 2, x, na.rm=TRUE) # NA값 제거
-```
-
 ### 논리형 데이터(logical: True or False)
 
 ```{r , results='hide'}
@@ -120,8 +140,9 @@ knitr::include_graphics('images/image1.png')
         false
         class(false)
         
-        # 참고
-        is.na(x)
+        # 참고 
+        is.numeric(x)
+        is.character(x)
 
 ```
 
