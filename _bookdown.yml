@@ -1,4 +1,4 @@
-book_filename: "KOSDDA_R_INTRO"
+book_filename: "bookdown-demo"
 language:
   ui:
     chapter_name: "Chapter "
