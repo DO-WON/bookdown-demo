@@ -4,13 +4,18 @@
 
 R은 기본적으로 함수형 언어입니다. 함수는 `함수명()`의 형태로 되어 있고, `( )`안에는 필요한 인자들을 입력할 수 있습니다. 인자(argument)란 특정 함수가 실행되는 조건들을 지정해주는 함수의 요소라고 생각하시면 됩니다. (e.g. `lm(Y~X, data)`)
 
+```{r, echo=FALSE, out.width='100%', fig.align='center', fig.cap=''}
+knitr::include_graphics('images/2-1.png')
+```
+
 한편, 어떤 인자들은 반드시 괄호 안에 입력해주어야 하는 반면, 어떤 인자는 입력하지 않아도 되는데, 이를 기본인자라고 합니다. 기본인자는 함수를 정의할 때 특정 조건이 미리 지정되어 있는 것이므로 특별히 다른 조건을 원하지 않는다면 생략해도 됩니다. (e.g. `q()` :R의 종료 명령어)
 
-함수의 기능과 필요한 인자를 찾기 위해 R의 도움말을 참고하시면 됩니다. 알고자 하는 함수에 대한 도움말은 콘솔창에서 `help(함수명)` 또는 `?함수명` 을 입력하면 됩니다. (e.g. `help(lm)` 또는 `?lm()`)
+함수의 기능과 필요한 인자를 찾기 위해 R의 도움말을 참고하시면 됩니다. 알고자 하는 함수에 대한 도움말은 콘솔창에서 `help(함수명)` 또는 `?함수명()` 을 입력하면 됩니다. (e.g. `help(lm)` 또는 `?lm()`)
 
 다음은 R에서 객체(object) 또는 변수를 만들고 사용하는 방법을 알려 드리겠습니다. R에서 객체란, 데이터가 담겨 있는 메모리의 주소 값, 즉 데이터를 담는 그릇입니다. R에게 분석해야 할 데이터를 줄 때 객체/변수라는 그릇에 담아서(=할당하여) 준다고 생각하시면 됩니다. (e.g.`객체/변수 이름 <- 저장할 값`)
 
-할당한다는 것의 의미: 값을 객체에 저장한다는 것. 영어로는 assign (지정, 할당). 할당자로는 `<-`또는 `=` 을 사용함.
+할당한다는 것의 의미: 
+-   값을 객체에 저장한다는 것. 영어로는 assign (지정, 할당). 할당자로는 `<-`또는 `=` 을 사용함.
 
 ```{r, echo=FALSE, out.width='25%', fig.align='center', fig.cap='변수 <- 데이터'}
 knitr::include_graphics('images/image1.png')
@@ -29,7 +34,7 @@ knitr::include_graphics('images/image1.png')
         var2 <- 2 # var2 라는 변수에 숫자 2 담기
         var2 # 출력하여 확인
         var3 <- "대학원생" # var3 변수에 글자 담기. 
-        									# "" 주의
+        									# " " 주의
         var4 <- as.Date("2022-12-01") # 날짜 데이터 담기
         var5 <- "Hello world" # 문자열 데이터 담기
         
@@ -39,13 +44,6 @@ knitr::include_graphics('images/image1.png')
         			  	# age and Age are different
 ```
 
-```{r , results='hide',eval=FALSE}
-        # new line by ; (semicolon)
-        Name <- "Kossda" ; Age <- 25; City <- "Seoul" 
-        Name 
-        Age
-        City 
-```
 
 ## 데이터 유형 ***Data type***
 
@@ -96,7 +94,7 @@ knitr::include_graphics('images/image1.png')
 
 참고) 문자형 데이터를 다루는 데 특화된 패키지: `stringr`, `tidytext`
 
-```{r , results='hide'}
+```{r , results='hide' , eval=FALSE}
       #데이터유형 확인
       class(5) 
       class("5")
@@ -122,28 +120,19 @@ knitr::include_graphics('images/image1.png')
 
 참고) 날짜형 데이터를 다루는 데 특화된 패키지: `lubridate`
 
-```{r , results='hide'}
+```{r }
         date1 <- as.Date("2022-12-25")
         date2 <- as.Date("2022-12-01")
         date1 - date2  #날짜 연산 가능
         difftime(date1, date2)
 ```
 
-### 논리형 데이터(logical: True or False)
+### 논리형 데이터(logical: TRUE or FALSE)
 
-```{r , results='hide'}
-        true <- T
-        true
-        class(true)
-        
-        false <- F
-        false
-        class(false)
-        
-        # 참고 
+```{r , echo=TRUE}
+        x = "kossda" 
         is.numeric(x)
         is.character(x)
-
 ```
 
 ## 변수 유형 ***Variable type***
@@ -174,7 +163,6 @@ knitr::include_graphics('images/image1.png')
 R에서 취급하는 데이터는 여러 구조를 가질 수 있습니다. 가장 단순한 형태부터, 실제로 분석에서 많이 쓰이는 형태까지 훑어 봅시다.
 
 ### 벡터(Vector)
-
 -   숫자 또는 문자의 나열
 -   하나의 벡터에는 반드시 데이터 유형이 같은 값들만 들어가야 함
 
@@ -279,6 +267,33 @@ R에서 취급하는 데이터는 여러 구조를 가질 수 있습니다. 가�
         data[, 4] # data[row index, column index]
         data$class # data$variable
 ```
+
+### 정리 
+
+벡터, 행렬, 리스트, 데이터프레임 구조에 대해서 배웠습니다. 
+
+```{r echo=FALSE, out.width = "100%", fig.align = "center", fig.cap='벡터, 행렬, 리스트, 데이터프레임'}
+knitr::include_graphics("images/2-2.png")
+```
+
+
+벡터는 동일한 타입의 데이터 값들의 나열입니다. 벡터를 여러 겹 쌓으면 행렬이 됩니다. 따라서 행렬 또한 동일한 타입의 데이터들로 구성됩니다. 그리고 대표적인 데이터 타입으로는 숫자형, 문자형, 논리형 타입이 있었습니다. 
+
+아래의 그림에서 퀴즈를 풀어보세요. 이 벡터는 어떤 데이터 타입이 나열된 벡터인가요? 
+
+```{r echo=FALSE, out.width = "100%", fig.align = "center", fig.cap='벡터와 행렬'}
+knitr::include_graphics("images/2-4.png")
+```
+
+
+다양한 데이터 구조 중에서 우리가 가장 많이 접하는 것은 데이터프레임입니다. 그렇다면 벡터와 데이터프레임 간 관계는 어떤가요? 벡터는 데이터프레임을 이루는 기본 단위라고 볼 수 있습니다. 아래의 그림에서 벡터는 가로로 나열된 모습이지만, 세로로 나열한다고 상상해 보세요. 즉, 벡터를 `열 벡터`로 생각해 봅시다. 이 열 벡터는 데이터프레임의 변수가 됩니다.  
+
+```{r echo=FALSE, out.width = "100%", fig.align = "center", fig.cap='벡터와 데이터프레임'}
+knitr::include_graphics("images/2-3.png")
+```
+
+앞으로 실습에서는 주로 데이터프레임을 다룰 것입니다. 참고로 데이터프레임 옆의 Indexing은 3.3 데이터 전처리 파트에서 자세히 다룰 예정입니다. 
+
 
 ## R 패키지와 라이브러리 ***R packages and libraries***
 

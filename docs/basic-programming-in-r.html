@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Basic programming in R | KOSSDA Introduction to R</title>
   <meta name="description" content="Chapter 2 Basic programming in R | KOSSDA Introduction to R" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Basic programming in R | KOSSDA Introduction to R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Do Won Kim, Hyowon Kim" />
 
 
-<meta name="date" content="2022-12-11" />
+<meta name="date" content="2022-12-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#숫자형-데이터numeric"><i class="fa fa-check"></i><b>2.2.1</b> 숫자형 데이터(numeric)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#문자형-데이터characterstringtext"><i class="fa fa-check"></i><b>2.2.2</b> 문자형 데이터(character/string/text)</a></li>
 <li class="chapter" data-level="2.2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#날짜형-데이터-as.date"><i class="fa fa-check"></i><b>2.2.3</b> 날짜형 데이터 <code>as.Date()</code></a></li>
-<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.4</b> 논리형 데이터(logical: True or False)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.4</b> 논리형 데이터(logical: TRUE or FALSE)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#변수-유형-variable-type"><i class="fa fa-check"></i><b>2.3</b> 변수 유형 <strong><em>Variable type</em></strong></a></li>
 <li class="chapter" data-level="2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-구조-data-structure"><i class="fa fa-check"></i><b>2.4</b> 데이터 구조 <strong><em>Data structure</em></strong></a>
@@ -154,6 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#행렬matrix"><i class="fa fa-check"></i><b>2.4.2</b> 행렬(Matrix)</a></li>
 <li class="chapter" data-level="2.4.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#리스트list"><i class="fa fa-check"></i><b>2.4.3</b> 리스트(List)</a></li>
 <li class="chapter" data-level="2.4.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-프레임data-frame"><i class="fa fa-check"></i><b>2.4.4</b> 데이터 프레임(Data Frame)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#정리"><i class="fa fa-check"></i><b>2.4.5</b> 정리</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#r-패키지와-라이브러리-r-packages-and-libraries"><i class="fa fa-check"></i><b>2.5</b> R 패키지와 라이브러리 <strong><em>R packages and libraries</em></strong></a>
 <ul>
@@ -202,11 +203,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-문법의-기초-communicating-in-r-language" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> R 문법의 기초 <strong><em>Communicating in R language</em></strong><a href="basic-programming-in-r.html#r-문법의-기초-communicating-in-r-language" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R은 기본적으로 함수형 언어입니다. 함수는 <code>함수명()</code>의 형태로 되어 있고, <code>( )</code>안에는 필요한 인자들을 입력할 수 있습니다. 인자(argument)란 특정 함수가 실행되는 조건들을 지정해주는 함수의 요소라고 생각하시면 됩니다. (e.g. <code>lm(Y~X, data)</code>)</p>
+<p><img src="images/2-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>한편, 어떤 인자들은 반드시 괄호 안에 입력해주어야 하는 반면, 어떤 인자는 입력하지 않아도 되는데, 이를 기본인자라고 합니다. 기본인자는 함수를 정의할 때 특정 조건이 미리 지정되어 있는 것이므로 특별히 다른 조건을 원하지 않는다면 생략해도 됩니다. (e.g. <code>q()</code> :R의 종료 명령어)</p>
-<p>함수의 기능과 필요한 인자를 찾기 위해 R의 도움말을 참고하시면 됩니다. 알고자 하는 함수에 대한 도움말은 콘솔창에서 <code>help(함수명)</code> 또는 <code>?함수명</code> 을 입력하면 됩니다. (e.g. <code>help(lm)</code> 또는 <code>?lm()</code>)</p>
+<p>함수의 기능과 필요한 인자를 찾기 위해 R의 도움말을 참고하시면 됩니다. 알고자 하는 함수에 대한 도움말은 콘솔창에서 <code>help(함수명)</code> 또는 <code>?함수명()</code> 을 입력하면 됩니다. (e.g. <code>help(lm)</code> 또는 <code>?lm()</code>)</p>
 <p>다음은 R에서 객체(object) 또는 변수를 만들고 사용하는 방법을 알려 드리겠습니다. R에서 객체란, 데이터가 담겨 있는 메모리의 주소 값, 즉 데이터를 담는 그릇입니다. R에게 분석해야 할 데이터를 줄 때 객체/변수라는 그릇에 담아서(=할당하여) 준다고 생각하시면 됩니다. (e.g.<code>객체/변수 이름 &lt;- 저장할 값</code>)</p>
-<p>할당한다는 것의 의미: 값을 객체에 저장한다는 것. 영어로는 assign (지정, 할당). 할당자로는 <code>&lt;-</code>또는 <code>=</code> 을 사용함.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<p>할당한다는 것의 의미:
+- 값을 객체에 저장한다는 것. 영어로는 assign (지정, 할당). 할당자로는 <code>&lt;-</code>또는 <code>=</code> 을 사용함.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="images/image1.png" alt="변수 &lt;- 데이터" width="25%" />
 <p class="caption">
 Figure 2.1: 변수 &lt;- 데이터
@@ -223,7 +226,7 @@ Figure 2.1: 변수 &lt;- 데이터
 <span id="cb1-3"><a href="basic-programming-in-r.html#cb1-3" aria-hidden="true" tabindex="-1"></a>        var2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># var2 라는 변수에 숫자 2 담기</span></span>
 <span id="cb1-4"><a href="basic-programming-in-r.html#cb1-4" aria-hidden="true" tabindex="-1"></a>        var2 <span class="co"># 출력하여 확인</span></span>
 <span id="cb1-5"><a href="basic-programming-in-r.html#cb1-5" aria-hidden="true" tabindex="-1"></a>        var3 <span class="ot">&lt;-</span> <span class="st">&quot;대학원생&quot;</span> <span class="co"># var3 변수에 글자 담기. </span></span>
-<span id="cb1-6"><a href="basic-programming-in-r.html#cb1-6" aria-hidden="true" tabindex="-1"></a>                                            <span class="co"># &quot;&quot; 주의</span></span>
+<span id="cb1-6"><a href="basic-programming-in-r.html#cb1-6" aria-hidden="true" tabindex="-1"></a>                                            <span class="co"># &quot; &quot; 주의</span></span>
 <span id="cb1-7"><a href="basic-programming-in-r.html#cb1-7" aria-hidden="true" tabindex="-1"></a>        var4 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-01&quot;</span>) <span class="co"># 날짜 데이터 담기</span></span>
 <span id="cb1-8"><a href="basic-programming-in-r.html#cb1-8" aria-hidden="true" tabindex="-1"></a>        var5 <span class="ot">&lt;-</span> <span class="st">&quot;Hello world&quot;</span> <span class="co"># 문자열 데이터 담기</span></span>
 <span id="cb1-9"><a href="basic-programming-in-r.html#cb1-9" aria-hidden="true" tabindex="-1"></a>        </span>
@@ -231,98 +234,88 @@ Figure 2.1: 변수 &lt;- 데이터
 <span id="cb1-11"><a href="basic-programming-in-r.html#cb1-11" aria-hidden="true" tabindex="-1"></a>        age <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="co"># age 라는 변수에 숫자 20 담기</span></span>
 <span id="cb1-12"><a href="basic-programming-in-r.html#cb1-12" aria-hidden="true" tabindex="-1"></a>        Age <span class="ot">&lt;-</span> <span class="dv">50</span> <span class="co"># Age라는 변수에 숫자 50 담기</span></span>
 <span id="cb1-13"><a href="basic-programming-in-r.html#cb1-13" aria-hidden="true" tabindex="-1"></a>                        <span class="co"># age and Age are different</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basic-programming-in-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>        <span class="co"># new line by ; (semicolon)</span></span>
-<span id="cb2-2"><a href="basic-programming-in-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>        Name <span class="ot">&lt;-</span> <span class="st">&quot;Kossda&quot;</span> ; Age <span class="ot">&lt;-</span> <span class="dv">25</span>; City <span class="ot">&lt;-</span> <span class="st">&quot;Seoul&quot;</span> </span>
-<span id="cb2-3"><a href="basic-programming-in-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a>        Name </span>
-<span id="cb2-4"><a href="basic-programming-in-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a>        Age</span>
-<span id="cb2-5"><a href="basic-programming-in-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>        City </span></code></pre></div>
 </div>
 <div id="데이터-유형-data-type" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> 데이터 유형 <strong><em>Data type</em></strong><a href="basic-programming-in-r.html#데이터-유형-data-type" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>이제부터는 객체/변수에 담을 수 있는 데이터 유형을 알아보겠습니다.</p>
 <div id="숫자형-데이터numeric" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> 숫자형 데이터(numeric)<a href="basic-programming-in-r.html#숫자형-데이터numeric" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basic-programming-in-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># assign a number to the variable named x </span></span>
-<span id="cb3-2"><a href="basic-programming-in-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x) <span class="co"># check the class of x </span></span>
-<span id="cb3-3"><a href="basic-programming-in-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="dv">5</span>,<span class="dv">000</span>) <span class="co">#에러 확인! 숫자 중에는 ,(콤마) 가 없음</span></span>
-<span id="cb3-4"><a href="basic-programming-in-r.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="basic-programming-in-r.html#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">#연산 가능</span></span>
-<span id="cb3-6"><a href="basic-programming-in-r.html#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">+</span><span class="dv">3</span> </span>
-<span id="cb3-7"><a href="basic-programming-in-r.html#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">*</span><span class="dv">3</span></span>
-<span id="cb3-8"><a href="basic-programming-in-r.html#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb3-9"><a href="basic-programming-in-r.html#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb3-10"><a href="basic-programming-in-r.html#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="dv">10</span><span class="sc">%%</span><span class="dv">3</span></span>
-<span id="cb3-11"><a href="basic-programming-in-r.html#cb3-11" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-12"><a href="basic-programming-in-r.html#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># square root</span></span>
-<span id="cb3-13"><a href="basic-programming-in-r.html#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sqrt</span>(<span class="dv">2</span>)</span>
-<span id="cb3-14"><a href="basic-programming-in-r.html#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="basic-programming-in-r.html#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># round to two decimal places </span></span>
-<span id="cb3-16"><a href="basic-programming-in-r.html#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">round</span>(<span class="fl">1.41421</span>, <span class="dv">2</span>) </span>
-<span id="cb3-17"><a href="basic-programming-in-r.html#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="basic-programming-in-r.html#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># round down to nearest integer</span></span>
-<span id="cb3-19"><a href="basic-programming-in-r.html#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">floor</span>(<span class="fl">1.41421</span>)</span>
-<span id="cb3-20"><a href="basic-programming-in-r.html#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="basic-programming-in-r.html#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># absolute value</span></span>
-<span id="cb3-22"><a href="basic-programming-in-r.html#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">abs</span>(<span class="sc">-</span><span class="dv">2</span>) </span>
-<span id="cb3-23"><a href="basic-programming-in-r.html#cb3-23" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-24"><a href="basic-programming-in-r.html#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># exponential </span></span>
-<span id="cb3-25"><a href="basic-programming-in-r.html#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">exp</span>(<span class="dv">2</span>) </span>
-<span id="cb3-26"><a href="basic-programming-in-r.html#cb3-26" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-27"><a href="basic-programming-in-r.html#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># logarithm</span></span>
-<span id="cb3-28"><a href="basic-programming-in-r.html#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">log</span>(<span class="dv">2</span>)  </span>
-<span id="cb3-29"><a href="basic-programming-in-r.html#cb3-29" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-30"><a href="basic-programming-in-r.html#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># assign to a variable and use these variables to calculate</span></span>
-<span id="cb3-31"><a href="basic-programming-in-r.html#cb3-31" aria-hidden="true" tabindex="-1"></a>        height <span class="ot">&lt;-</span> <span class="dv">170</span></span>
-<span id="cb3-32"><a href="basic-programming-in-r.html#cb3-32" aria-hidden="true" tabindex="-1"></a>        weight <span class="ot">&lt;-</span> <span class="dv">60</span> </span>
-<span id="cb3-33"><a href="basic-programming-in-r.html#cb3-33" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-34"><a href="basic-programming-in-r.html#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># BMI = weight / height^2 (in meter) </span></span>
-<span id="cb3-35"><a href="basic-programming-in-r.html#cb3-35" aria-hidden="true" tabindex="-1"></a>        BMI <span class="ot">&lt;-</span> weight <span class="sc">/</span> (height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basic-programming-in-r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># assign a number to the variable named x </span></span>
+<span id="cb2-2"><a href="basic-programming-in-r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x) <span class="co"># check the class of x </span></span>
+<span id="cb2-3"><a href="basic-programming-in-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="dv">5</span>,<span class="dv">000</span>) <span class="co">#에러 확인! 숫자 중에는 ,(콤마) 가 없음</span></span>
+<span id="cb2-4"><a href="basic-programming-in-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="basic-programming-in-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">#연산 가능</span></span>
+<span id="cb2-6"><a href="basic-programming-in-r.html#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">+</span><span class="dv">3</span> </span>
+<span id="cb2-7"><a href="basic-programming-in-r.html#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb2-8"><a href="basic-programming-in-r.html#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb2-9"><a href="basic-programming-in-r.html#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb2-10"><a href="basic-programming-in-r.html#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="dv">10</span><span class="sc">%%</span><span class="dv">3</span></span>
+<span id="cb2-11"><a href="basic-programming-in-r.html#cb2-11" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-12"><a href="basic-programming-in-r.html#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># square root</span></span>
+<span id="cb2-13"><a href="basic-programming-in-r.html#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sqrt</span>(<span class="dv">2</span>)</span>
+<span id="cb2-14"><a href="basic-programming-in-r.html#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="basic-programming-in-r.html#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># round to two decimal places </span></span>
+<span id="cb2-16"><a href="basic-programming-in-r.html#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">round</span>(<span class="fl">1.41421</span>, <span class="dv">2</span>) </span>
+<span id="cb2-17"><a href="basic-programming-in-r.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="basic-programming-in-r.html#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># round down to nearest integer</span></span>
+<span id="cb2-19"><a href="basic-programming-in-r.html#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">floor</span>(<span class="fl">1.41421</span>)</span>
+<span id="cb2-20"><a href="basic-programming-in-r.html#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="basic-programming-in-r.html#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># absolute value</span></span>
+<span id="cb2-22"><a href="basic-programming-in-r.html#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">abs</span>(<span class="sc">-</span><span class="dv">2</span>) </span>
+<span id="cb2-23"><a href="basic-programming-in-r.html#cb2-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-24"><a href="basic-programming-in-r.html#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># exponential </span></span>
+<span id="cb2-25"><a href="basic-programming-in-r.html#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">exp</span>(<span class="dv">2</span>) </span>
+<span id="cb2-26"><a href="basic-programming-in-r.html#cb2-26" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-27"><a href="basic-programming-in-r.html#cb2-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># logarithm</span></span>
+<span id="cb2-28"><a href="basic-programming-in-r.html#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">log</span>(<span class="dv">2</span>)  </span>
+<span id="cb2-29"><a href="basic-programming-in-r.html#cb2-29" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-30"><a href="basic-programming-in-r.html#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># assign to a variable and use these variables to calculate</span></span>
+<span id="cb2-31"><a href="basic-programming-in-r.html#cb2-31" aria-hidden="true" tabindex="-1"></a>        height <span class="ot">&lt;-</span> <span class="dv">170</span></span>
+<span id="cb2-32"><a href="basic-programming-in-r.html#cb2-32" aria-hidden="true" tabindex="-1"></a>        weight <span class="ot">&lt;-</span> <span class="dv">60</span> </span>
+<span id="cb2-33"><a href="basic-programming-in-r.html#cb2-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-34"><a href="basic-programming-in-r.html#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># BMI = weight / height^2 (in meter) </span></span>
+<span id="cb2-35"><a href="basic-programming-in-r.html#cb2-35" aria-hidden="true" tabindex="-1"></a>        BMI <span class="ot">&lt;-</span> weight <span class="sc">/</span> (height<span class="sc">/</span><span class="dv">100</span>)<span class="sc">^</span><span class="dv">2</span>  </span></code></pre></div>
 </div>
 <div id="문자형-데이터characterstringtext" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> 문자형 데이터(character/string/text)<a href="basic-programming-in-r.html#문자형-데이터characterstringtext" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>참고) 문자형 데이터를 다루는 데 특화된 패키지: <code>stringr</code>, <code>tidytext</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basic-programming-in-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>      <span class="co">#데이터유형 확인</span></span>
-<span id="cb4-2"><a href="basic-programming-in-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="dv">5</span>) </span>
-<span id="cb4-3"><a href="basic-programming-in-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="st">&quot;5&quot;</span>)</span>
-<span id="cb4-4"><a href="basic-programming-in-r.html#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="st">&quot;2022-12-01&quot;</span>) <span class="co">#날짜 같지만 문자형</span></span>
-<span id="cb4-5"><a href="basic-programming-in-r.html#cb4-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="st">&quot;Hello World!&quot;</span>) <span class="co">#문자열도 문자형</span></span>
-<span id="cb4-6"><a href="basic-programming-in-r.html#cb4-6" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb4-7"><a href="basic-programming-in-r.html#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="co"># assign to a variable </span></span>
-<span id="cb4-8"><a href="basic-programming-in-r.html#cb4-8" aria-hidden="true" tabindex="-1"></a>      greeting <span class="ot">&lt;-</span> <span class="st">&quot;Hello World!&quot;</span> </span>
-<span id="cb4-9"><a href="basic-programming-in-r.html#cb4-9" aria-hidden="true" tabindex="-1"></a>      greeting </span>
-<span id="cb4-10"><a href="basic-programming-in-r.html#cb4-10" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb4-11"><a href="basic-programming-in-r.html#cb4-11" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">=</span> <span class="st">&quot;100&quot;</span> </span>
-<span id="cb4-12"><a href="basic-programming-in-r.html#cb4-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x)      <span class="co"># character type: let&#39;s convert it to numeric type</span></span>
-<span id="cb4-13"><a href="basic-programming-in-r.html#cb4-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(x) <span class="co"># converts to numeric type </span></span>
-<span id="cb4-14"><a href="basic-programming-in-r.html#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x)      <span class="co"># you should assign it to x to update</span></span>
-<span id="cb4-15"><a href="basic-programming-in-r.html#cb4-15" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">=</span> <span class="fu">as.numeric</span>(x)</span>
-<span id="cb4-16"><a href="basic-programming-in-r.html#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x) </span>
-<span id="cb4-17"><a href="basic-programming-in-r.html#cb4-17" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb4-18"><a href="basic-programming-in-r.html#cb4-18" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">=</span> <span class="st">&quot;kossda&quot;</span> </span>
-<span id="cb4-19"><a href="basic-programming-in-r.html#cb4-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(x) <span class="co"># fails</span></span></code></pre></div>
-<pre><code>## Warning: 강제형변환에 의해 생성된 NA 입니다</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basic-programming-in-r.html#cb3-1" aria-hidden="true" tabindex="-1"></a>      <span class="co">#데이터유형 확인</span></span>
+<span id="cb3-2"><a href="basic-programming-in-r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="dv">5</span>) </span>
+<span id="cb3-3"><a href="basic-programming-in-r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="st">&quot;5&quot;</span>)</span>
+<span id="cb3-4"><a href="basic-programming-in-r.html#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="st">&quot;2022-12-01&quot;</span>) <span class="co">#날짜 같지만 문자형</span></span>
+<span id="cb3-5"><a href="basic-programming-in-r.html#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(<span class="st">&quot;Hello World!&quot;</span>) <span class="co">#문자열도 문자형</span></span>
+<span id="cb3-6"><a href="basic-programming-in-r.html#cb3-6" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-7"><a href="basic-programming-in-r.html#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="co"># assign to a variable </span></span>
+<span id="cb3-8"><a href="basic-programming-in-r.html#cb3-8" aria-hidden="true" tabindex="-1"></a>      greeting <span class="ot">&lt;-</span> <span class="st">&quot;Hello World!&quot;</span> </span>
+<span id="cb3-9"><a href="basic-programming-in-r.html#cb3-9" aria-hidden="true" tabindex="-1"></a>      greeting </span>
+<span id="cb3-10"><a href="basic-programming-in-r.html#cb3-10" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-11"><a href="basic-programming-in-r.html#cb3-11" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">=</span> <span class="st">&quot;100&quot;</span> </span>
+<span id="cb3-12"><a href="basic-programming-in-r.html#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x)      <span class="co"># character type: let&#39;s convert it to numeric type</span></span>
+<span id="cb3-13"><a href="basic-programming-in-r.html#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(x) <span class="co"># converts to numeric type </span></span>
+<span id="cb3-14"><a href="basic-programming-in-r.html#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x)      <span class="co"># you should assign it to x to update</span></span>
+<span id="cb3-15"><a href="basic-programming-in-r.html#cb3-15" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">=</span> <span class="fu">as.numeric</span>(x)</span>
+<span id="cb3-16"><a href="basic-programming-in-r.html#cb3-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">class</span>(x) </span>
+<span id="cb3-17"><a href="basic-programming-in-r.html#cb3-17" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-18"><a href="basic-programming-in-r.html#cb3-18" aria-hidden="true" tabindex="-1"></a>      x <span class="ot">=</span> <span class="st">&quot;kossda&quot;</span> </span>
+<span id="cb3-19"><a href="basic-programming-in-r.html#cb3-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(x) <span class="co"># fails</span></span></code></pre></div>
 </div>
 <div id="날짜형-데이터-as.date" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> 날짜형 데이터 <code>as.Date()</code><a href="basic-programming-in-r.html#날짜형-데이터-as.date" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>참고) 날짜형 데이터를 다루는 데 특화된 패키지: <code>lubridate</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basic-programming-in-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a>        date1 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-25&quot;</span>)</span>
-<span id="cb6-2"><a href="basic-programming-in-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>        date2 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-01&quot;</span>)</span>
-<span id="cb6-3"><a href="basic-programming-in-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a>        date1 <span class="sc">-</span> date2  <span class="co">#날짜 연산 가능</span></span>
-<span id="cb6-4"><a href="basic-programming-in-r.html#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">difftime</span>(date1, date2)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basic-programming-in-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>        date1 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-25&quot;</span>)</span>
+<span id="cb4-2"><a href="basic-programming-in-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a>        date2 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-01&quot;</span>)</span>
+<span id="cb4-3"><a href="basic-programming-in-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a>        date1 <span class="sc">-</span> date2  <span class="co">#날짜 연산 가능</span></span></code></pre></div>
+<pre><code>## Time difference of 24 days</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basic-programming-in-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a>        <span class="fu">difftime</span>(date1, date2)</span></code></pre></div>
+<pre><code>## Time difference of 24 days</code></pre>
 </div>
 <div id="논리형-데이터logical-true-or-false" class="section level3 hasAnchor" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> 논리형 데이터(logical: True or False)<a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basic-programming-in-r.html#cb7-1" aria-hidden="true" tabindex="-1"></a>        true <span class="ot">&lt;-</span> T</span>
-<span id="cb7-2"><a href="basic-programming-in-r.html#cb7-2" aria-hidden="true" tabindex="-1"></a>        true</span>
-<span id="cb7-3"><a href="basic-programming-in-r.html#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(true)</span>
-<span id="cb7-4"><a href="basic-programming-in-r.html#cb7-4" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-5"><a href="basic-programming-in-r.html#cb7-5" aria-hidden="true" tabindex="-1"></a>        false <span class="ot">&lt;-</span> F</span>
-<span id="cb7-6"><a href="basic-programming-in-r.html#cb7-6" aria-hidden="true" tabindex="-1"></a>        false</span>
-<span id="cb7-7"><a href="basic-programming-in-r.html#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(false)</span>
-<span id="cb7-8"><a href="basic-programming-in-r.html#cb7-8" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-9"><a href="basic-programming-in-r.html#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 참고 </span></span>
-<span id="cb7-10"><a href="basic-programming-in-r.html#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">is.numeric</span>(x)</span>
-<span id="cb7-11"><a href="basic-programming-in-r.html#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">is.character</span>(x)</span></code></pre></div>
+<h3><span class="header-section-number">2.2.4</span> 논리형 데이터(logical: TRUE or FALSE)<a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basic-programming-in-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a>        x <span class="ot">=</span> <span class="st">&quot;kossda&quot;</span> </span>
+<span id="cb8-2"><a href="basic-programming-in-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">is.numeric</span>(x)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basic-programming-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>        <span class="fu">is.character</span>(x)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 </div>
 <div id="변수-유형-variable-type" class="section level2 hasAnchor" number="2.3">
@@ -364,16 +357,16 @@ Figure 2.1: 변수 &lt;- 데이터
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basic-programming-in-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a>        diabetes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb8-2"><a href="basic-programming-in-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a>        diabetes <span class="ot">&lt;-</span> <span class="fu">factor</span>(diabetes) <span class="co">#범주변수로 처리</span></span>
-<span id="cb8-3"><a href="basic-programming-in-r.html#cb8-3" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb8-4"><a href="basic-programming-in-r.html#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">#알파벳 순서로 1=excellent, 2=good, 3=poor로 정함</span></span>
-<span id="cb8-5"><a href="basic-programming-in-r.html#cb8-5" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;poor&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;excellent&quot;</span>, <span class="st">&quot;poor&quot;</span>)</span>
-<span id="cb8-6"><a href="basic-programming-in-r.html#cb8-6" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">factor</span>(status)  </span>
-<span id="cb8-7"><a href="basic-programming-in-r.html#cb8-7" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb8-8"><a href="basic-programming-in-r.html#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">#순서를 1=poor, 2=good, 3=excellent로 정함</span></span>
-<span id="cb8-9"><a href="basic-programming-in-r.html#cb8-9" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">factor</span>(status, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;poor&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;excellent&quot;</span>))</span>
-<span id="cb8-10"><a href="basic-programming-in-r.html#cb8-10" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">factor</span>(status, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;poor&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;excellent&quot;</span>), <span class="at">order=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basic-programming-in-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>        diabetes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="basic-programming-in-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>        diabetes <span class="ot">&lt;-</span> <span class="fu">factor</span>(diabetes) <span class="co">#범주변수로 처리</span></span>
+<span id="cb12-3"><a href="basic-programming-in-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb12-4"><a href="basic-programming-in-r.html#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">#알파벳 순서로 1=excellent, 2=good, 3=poor로 정함</span></span>
+<span id="cb12-5"><a href="basic-programming-in-r.html#cb12-5" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;poor&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;excellent&quot;</span>, <span class="st">&quot;poor&quot;</span>)</span>
+<span id="cb12-6"><a href="basic-programming-in-r.html#cb12-6" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">factor</span>(status)  </span>
+<span id="cb12-7"><a href="basic-programming-in-r.html#cb12-7" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb12-8"><a href="basic-programming-in-r.html#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">#순서를 1=poor, 2=good, 3=excellent로 정함</span></span>
+<span id="cb12-9"><a href="basic-programming-in-r.html#cb12-9" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">factor</span>(status, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;poor&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;excellent&quot;</span>))</span>
+<span id="cb12-10"><a href="basic-programming-in-r.html#cb12-10" aria-hidden="true" tabindex="-1"></a>        status <span class="ot">&lt;-</span> <span class="fu">factor</span>(status, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;poor&quot;</span>, <span class="st">&quot;good&quot;</span>, <span class="st">&quot;excellent&quot;</span>), <span class="at">order=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="데이터-구조-data-structure" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> 데이터 구조 <strong><em>Data structure</em></strong><a href="basic-programming-in-r.html#데이터-구조-data-structure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -384,29 +377,29 @@ Figure 2.1: 변수 &lt;- 데이터
 <li>숫자 또는 문자의 나열</li>
 <li>하나의 벡터에는 반드시 데이터 유형이 같은 값들만 들어가야 함</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="basic-programming-in-r.html#cb9-1" aria-hidden="true" tabindex="-1"></a>        v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> </span>
-<span id="cb9-2"><a href="basic-programming-in-r.html#cb9-2" aria-hidden="true" tabindex="-1"></a>        v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># c() : combine </span></span>
-<span id="cb9-3"><a href="basic-programming-in-r.html#cb9-3" aria-hidden="true" tabindex="-1"></a>        v3 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb9-4"><a href="basic-programming-in-r.html#cb9-4" aria-hidden="true" tabindex="-1"></a>        v4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">times =</span> <span class="dv">10</span>) </span>
-<span id="cb9-5"><a href="basic-programming-in-r.html#cb9-5" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb9-6"><a href="basic-programming-in-r.html#cb9-6" aria-hidden="true" tabindex="-1"></a>        var1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&quot;3&quot;</span>)</span>
-<span id="cb9-7"><a href="basic-programming-in-r.html#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(var1)</span>
-<span id="cb9-8"><a href="basic-programming-in-r.html#cb9-8" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb9-9"><a href="basic-programming-in-r.html#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Indexing을 이용한 벡터의 원소 접근 및 연산</span></span>
-<span id="cb9-10"><a href="basic-programming-in-r.html#cb9-10" aria-hidden="true" tabindex="-1"></a>        v5 <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># empty object </span></span>
-<span id="cb9-11"><a href="basic-programming-in-r.html#cb9-11" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">1</span>] <span class="ot">&lt;-</span> v1[<span class="dv">1</span>] <span class="sc">+</span> v1[<span class="dv">3</span>]; v5</span>
-<span id="cb9-12"><a href="basic-programming-in-r.html#cb9-12" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">1</span>] <span class="ot">&lt;-</span> v1[<span class="dv">1</span>] <span class="sc">+</span> v1[<span class="dv">3</span>]; v5</span>
-<span id="cb9-13"><a href="basic-programming-in-r.html#cb9-13" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">2</span>] <span class="ot">&lt;-</span> v1[<span class="dv">1</span>] <span class="sc">/</span> <span class="dv">0</span>; v5</span>
-<span id="cb9-14"><a href="basic-programming-in-r.html#cb9-14" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>; v5</span>
-<span id="cb9-15"><a href="basic-programming-in-r.html#cb9-15" aria-hidden="true" tabindex="-1"></a>        v5 <span class="ot">&lt;-</span> v5[<span class="sc">-</span><span class="dv">1</span>]; v5 <span class="co"># omit the first element </span></span>
-<span id="cb9-16"><a href="basic-programming-in-r.html#cb9-16" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb9-17"><a href="basic-programming-in-r.html#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 문자열 벡터</span></span>
-<span id="cb9-18"><a href="basic-programming-in-r.html#cb9-18" aria-hidden="true" tabindex="-1"></a>        fruit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pine&quot;</span>, <span class="st">&quot;tree&quot;</span>)</span>
-<span id="cb9-19"><a href="basic-programming-in-r.html#cb9-19" aria-hidden="true" tabindex="-1"></a>        fruit</span>
-<span id="cb9-20"><a href="basic-programming-in-r.html#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grep</span>(<span class="st">&#39;p&#39;</span>, fruit)</span>
-<span id="cb9-21"><a href="basic-programming-in-r.html#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grep</span>(<span class="st">&#39;p&#39;</span>, fruit, <span class="at">value =</span> T)</span>
-<span id="cb9-22"><a href="basic-programming-in-r.html#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(fruit[<span class="dv">3</span>], fruit[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;&quot;</span>) </span>
-<span id="cb9-23"><a href="basic-programming-in-r.html#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">substr</span>(fruit[<span class="dv">1</span>], <span class="dv">3</span>, <span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic-programming-in-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a>        v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> </span>
+<span id="cb13-2"><a href="basic-programming-in-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a>        v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># c() : combine </span></span>
+<span id="cb13-3"><a href="basic-programming-in-r.html#cb13-3" aria-hidden="true" tabindex="-1"></a>        v3 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb13-4"><a href="basic-programming-in-r.html#cb13-4" aria-hidden="true" tabindex="-1"></a>        v4 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="at">times =</span> <span class="dv">10</span>) </span>
+<span id="cb13-5"><a href="basic-programming-in-r.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb13-6"><a href="basic-programming-in-r.html#cb13-6" aria-hidden="true" tabindex="-1"></a>        var1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">&quot;3&quot;</span>)</span>
+<span id="cb13-7"><a href="basic-programming-in-r.html#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">class</span>(var1)</span>
+<span id="cb13-8"><a href="basic-programming-in-r.html#cb13-8" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb13-9"><a href="basic-programming-in-r.html#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Indexing을 이용한 벡터의 원소 접근 및 연산</span></span>
+<span id="cb13-10"><a href="basic-programming-in-r.html#cb13-10" aria-hidden="true" tabindex="-1"></a>        v5 <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># empty object </span></span>
+<span id="cb13-11"><a href="basic-programming-in-r.html#cb13-11" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">1</span>] <span class="ot">&lt;-</span> v1[<span class="dv">1</span>] <span class="sc">+</span> v1[<span class="dv">3</span>]; v5</span>
+<span id="cb13-12"><a href="basic-programming-in-r.html#cb13-12" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">1</span>] <span class="ot">&lt;-</span> v1[<span class="dv">1</span>] <span class="sc">+</span> v1[<span class="dv">3</span>]; v5</span>
+<span id="cb13-13"><a href="basic-programming-in-r.html#cb13-13" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">2</span>] <span class="ot">&lt;-</span> v1[<span class="dv">1</span>] <span class="sc">/</span> <span class="dv">0</span>; v5</span>
+<span id="cb13-14"><a href="basic-programming-in-r.html#cb13-14" aria-hidden="true" tabindex="-1"></a>        v5[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">/</span><span class="dv">0</span>; v5</span>
+<span id="cb13-15"><a href="basic-programming-in-r.html#cb13-15" aria-hidden="true" tabindex="-1"></a>        v5 <span class="ot">&lt;-</span> v5[<span class="sc">-</span><span class="dv">1</span>]; v5 <span class="co"># omit the first element </span></span>
+<span id="cb13-16"><a href="basic-programming-in-r.html#cb13-16" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb13-17"><a href="basic-programming-in-r.html#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 문자열 벡터</span></span>
+<span id="cb13-18"><a href="basic-programming-in-r.html#cb13-18" aria-hidden="true" tabindex="-1"></a>        fruit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pine&quot;</span>, <span class="st">&quot;tree&quot;</span>)</span>
+<span id="cb13-19"><a href="basic-programming-in-r.html#cb13-19" aria-hidden="true" tabindex="-1"></a>        fruit</span>
+<span id="cb13-20"><a href="basic-programming-in-r.html#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grep</span>(<span class="st">&#39;p&#39;</span>, fruit)</span>
+<span id="cb13-21"><a href="basic-programming-in-r.html#cb13-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grep</span>(<span class="st">&#39;p&#39;</span>, fruit, <span class="at">value =</span> T)</span>
+<span id="cb13-22"><a href="basic-programming-in-r.html#cb13-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(fruit[<span class="dv">3</span>], fruit[<span class="dv">2</span>], <span class="at">sep =</span> <span class="st">&quot;&quot;</span>) </span>
+<span id="cb13-23"><a href="basic-programming-in-r.html#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">substr</span>(fruit[<span class="dv">1</span>], <span class="dv">3</span>, <span class="dv">6</span>)</span></code></pre></div>
 </div>
 <div id="행렬matrix" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> 행렬(Matrix)<a href="basic-programming-in-r.html#행렬matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -414,25 +407,25 @@ Figure 2.1: 변수 &lt;- 데이터
 <li>여러 개의 벡터로 구성된, 가로 X 세로 형태의 행렬</li>
 <li>벡터와 마찬가지로 동일한 유형의 데이터가 들어가야 함</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basic-programming-in-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a>        mat1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>); mat1 </span>
-<span id="cb10-2"><a href="basic-programming-in-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a>        mat2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T); mat2 </span>
-<span id="cb10-3"><a href="basic-programming-in-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a>        v6 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(mat2); v6 <span class="co"># as.vector() : make the object into &#39;vector&#39;</span></span>
-<span id="cb10-4"><a href="basic-programming-in-r.html#cb10-4" aria-hidden="true" tabindex="-1"></a>        mat3 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(v6, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>); mat3</span>
-<span id="cb10-5"><a href="basic-programming-in-r.html#cb10-5" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb10-6"><a href="basic-programming-in-r.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># vector를 이용한 matrix 생성</span></span>
-<span id="cb10-7"><a href="basic-programming-in-r.html#cb10-7" aria-hidden="true" tabindex="-1"></a>        mat4 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v1, v2, v3); mat4</span>
-<span id="cb10-8"><a href="basic-programming-in-r.html#cb10-8" aria-hidden="true" tabindex="-1"></a>        mat5 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3); mat5</span>
-<span id="cb10-9"><a href="basic-programming-in-r.html#cb10-9" aria-hidden="true" tabindex="-1"></a>        mat6 <span class="ot">&lt;-</span> mat4 <span class="sc">%*%</span> mat5; mat6 <span class="co"># matrix multiplication </span></span>
-<span id="cb10-10"><a href="basic-programming-in-r.html#cb10-10" aria-hidden="true" tabindex="-1"></a>        mat7 <span class="ot">&lt;-</span> mat4 <span class="sc">*</span> mat4; mat7 <span class="co"># Kronecker product ( Different from %*% !! )</span></span>
-<span id="cb10-11"><a href="basic-programming-in-r.html#cb10-11" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb10-12"><a href="basic-programming-in-r.html#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># indexing / 차원 확인</span></span>
-<span id="cb10-13"><a href="basic-programming-in-r.html#cb10-13" aria-hidden="true" tabindex="-1"></a>        m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>); m </span>
-<span id="cb10-14"><a href="basic-programming-in-r.html#cb10-14" aria-hidden="true" tabindex="-1"></a>        m[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
-<span id="cb10-15"><a href="basic-programming-in-r.html#cb10-15" aria-hidden="true" tabindex="-1"></a>        m[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),]</span>
-<span id="cb10-16"><a href="basic-programming-in-r.html#cb10-16" aria-hidden="true" tabindex="-1"></a>        m[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
-<span id="cb10-17"><a href="basic-programming-in-r.html#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">dim</span>(m)</span>
-<span id="cb10-18"><a href="basic-programming-in-r.html#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(m)</span>
-<span id="cb10-19"><a href="basic-programming-in-r.html#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basic-programming-in-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a>        mat1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>); mat1 </span>
+<span id="cb14-2"><a href="basic-programming-in-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a>        mat2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T); mat2 </span>
+<span id="cb14-3"><a href="basic-programming-in-r.html#cb14-3" aria-hidden="true" tabindex="-1"></a>        v6 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(mat2); v6 <span class="co"># as.vector() : make the object into &#39;vector&#39;</span></span>
+<span id="cb14-4"><a href="basic-programming-in-r.html#cb14-4" aria-hidden="true" tabindex="-1"></a>        mat3 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(v6, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">2</span>); mat3</span>
+<span id="cb14-5"><a href="basic-programming-in-r.html#cb14-5" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb14-6"><a href="basic-programming-in-r.html#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># vector를 이용한 matrix 생성</span></span>
+<span id="cb14-7"><a href="basic-programming-in-r.html#cb14-7" aria-hidden="true" tabindex="-1"></a>        mat4 <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v1, v2, v3); mat4</span>
+<span id="cb14-8"><a href="basic-programming-in-r.html#cb14-8" aria-hidden="true" tabindex="-1"></a>        mat5 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3); mat5</span>
+<span id="cb14-9"><a href="basic-programming-in-r.html#cb14-9" aria-hidden="true" tabindex="-1"></a>        mat6 <span class="ot">&lt;-</span> mat4 <span class="sc">%*%</span> mat5; mat6 <span class="co"># matrix multiplication </span></span>
+<span id="cb14-10"><a href="basic-programming-in-r.html#cb14-10" aria-hidden="true" tabindex="-1"></a>        mat7 <span class="ot">&lt;-</span> mat4 <span class="sc">*</span> mat4; mat7 <span class="co"># Kronecker product ( Different from %*% !! )</span></span>
+<span id="cb14-11"><a href="basic-programming-in-r.html#cb14-11" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb14-12"><a href="basic-programming-in-r.html#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># indexing / 차원 확인</span></span>
+<span id="cb14-13"><a href="basic-programming-in-r.html#cb14-13" aria-hidden="true" tabindex="-1"></a>        m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>); m </span>
+<span id="cb14-14"><a href="basic-programming-in-r.html#cb14-14" aria-hidden="true" tabindex="-1"></a>        m[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb14-15"><a href="basic-programming-in-r.html#cb14-15" aria-hidden="true" tabindex="-1"></a>        m[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),]</span>
+<span id="cb14-16"><a href="basic-programming-in-r.html#cb14-16" aria-hidden="true" tabindex="-1"></a>        m[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
+<span id="cb14-17"><a href="basic-programming-in-r.html#cb14-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">dim</span>(m)</span>
+<span id="cb14-18"><a href="basic-programming-in-r.html#cb14-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(m)</span>
+<span id="cb14-19"><a href="basic-programming-in-r.html#cb14-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">length</span>(v1)</span></code></pre></div>
 </div>
 <div id="리스트list" class="section level3 hasAnchor" number="2.4.3">
 <h3><span class="header-section-number">2.4.3</span> 리스트(List)<a href="basic-programming-in-r.html#리스트list" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -443,14 +436,14 @@ Figure 2.1: 변수 &lt;- 데이터
 <li>변수 = 작은 방
 - 값</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basic-programming-in-r.html#cb11-1" aria-hidden="true" tabindex="-1"></a>        list1 <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>), <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow=</span><span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&#39;hello&#39;</span>, <span class="st">&#39;world&#39;</span>))</span>
-<span id="cb11-2"><a href="basic-programming-in-r.html#cb11-2" aria-hidden="true" tabindex="-1"></a>        list1</span>
-<span id="cb11-3"><a href="basic-programming-in-r.html#cb11-3" aria-hidden="true" tabindex="-1"></a>        list1[[<span class="dv">1</span>]] ; <span class="fu">mode</span>(list1[[<span class="dv">1</span>]])</span>
-<span id="cb11-4"><a href="basic-programming-in-r.html#cb11-4" aria-hidden="true" tabindex="-1"></a>        list1[<span class="dv">1</span>] ; <span class="fu">mode</span>(list1[<span class="dv">1</span>])</span>
-<span id="cb11-5"><a href="basic-programming-in-r.html#cb11-5" aria-hidden="true" tabindex="-1"></a>        list1[[<span class="dv">2</span>]][<span class="dv">2</span>,<span class="dv">1</span>]</span>
-<span id="cb11-6"><a href="basic-programming-in-r.html#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># list1[2][2,1] # Error ! </span></span>
-<span id="cb11-7"><a href="basic-programming-in-r.html#cb11-7" aria-hidden="true" tabindex="-1"></a>        list1[[<span class="dv">2</span>]][<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&#39;world&#39;</span> ; list1[[<span class="dv">2</span>]]</span>
-<span id="cb11-8"><a href="basic-programming-in-r.html#cb11-8" aria-hidden="true" tabindex="-1"></a>        list1[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basic-programming-in-r.html#cb15-1" aria-hidden="true" tabindex="-1"></a>        list1 <span class="ot">=</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>), <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow=</span><span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&#39;hello&#39;</span>, <span class="st">&#39;world&#39;</span>))</span>
+<span id="cb15-2"><a href="basic-programming-in-r.html#cb15-2" aria-hidden="true" tabindex="-1"></a>        list1</span>
+<span id="cb15-3"><a href="basic-programming-in-r.html#cb15-3" aria-hidden="true" tabindex="-1"></a>        list1[[<span class="dv">1</span>]] ; <span class="fu">mode</span>(list1[[<span class="dv">1</span>]])</span>
+<span id="cb15-4"><a href="basic-programming-in-r.html#cb15-4" aria-hidden="true" tabindex="-1"></a>        list1[<span class="dv">1</span>] ; <span class="fu">mode</span>(list1[<span class="dv">1</span>])</span>
+<span id="cb15-5"><a href="basic-programming-in-r.html#cb15-5" aria-hidden="true" tabindex="-1"></a>        list1[[<span class="dv">2</span>]][<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb15-6"><a href="basic-programming-in-r.html#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># list1[2][2,1] # Error ! </span></span>
+<span id="cb15-7"><a href="basic-programming-in-r.html#cb15-7" aria-hidden="true" tabindex="-1"></a>        list1[[<span class="dv">2</span>]][<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&#39;world&#39;</span> ; list1[[<span class="dv">2</span>]]</span>
+<span id="cb15-8"><a href="basic-programming-in-r.html#cb15-8" aria-hidden="true" tabindex="-1"></a>        list1[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
 </div>
 <div id="데이터-프레임data-frame" class="section level3 hasAnchor" number="2.4.4">
 <h3><span class="header-section-number">2.4.4</span> 데이터 프레임(Data Frame)<a href="basic-programming-in-r.html#데이터-프레임data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -484,22 +477,48 @@ Figure 2.1: 변수 &lt;- 데이터
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basic-programming-in-r.html#cb12-1" aria-hidden="true" tabindex="-1"></a>        no <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">9</span>)</span>
-<span id="cb12-2"><a href="basic-programming-in-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>        name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;손흥민&quot;</span>, <span class="st">&quot;해리케인&quot;</span>, <span class="st">&quot;홀란드&quot;</span>)</span>
-<span id="cb12-3"><a href="basic-programming-in-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>        birth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1992-07-08&quot;</span>, <span class="st">&quot;1993-07-28&quot;</span>, <span class="st">&quot;2000-07-21&quot;</span>)</span>
-<span id="cb12-4"><a href="basic-programming-in-r.html#cb12-4" aria-hidden="true" tabindex="-1"></a>        player <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">NO=</span>no, <span class="at">NAME=</span>name, <span class="at">BIRTH=</span>birth)</span>
-<span id="cb12-5"><a href="basic-programming-in-r.html#cb12-5" aria-hidden="true" tabindex="-1"></a>        player </span>
-<span id="cb12-6"><a href="basic-programming-in-r.html#cb12-6" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb12-7"><a href="basic-programming-in-r.html#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or </span></span>
-<span id="cb12-8"><a href="basic-programming-in-r.html#cb12-8" aria-hidden="true" tabindex="-1"></a>        m</span>
-<span id="cb12-9"><a href="basic-programming-in-r.html#cb12-9" aria-hidden="true" tabindex="-1"></a>        data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m); data <span class="co"># Difference btw &#39;matrix&#39; and &#39;dataframe&#39; ? </span></span>
-<span id="cb12-10"><a href="basic-programming-in-r.html#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">colnames</span>(data)</span>
-<span id="cb12-11"><a href="basic-programming-in-r.html#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rownames</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>, <span class="st">&quot;N3&quot;</span>)</span>
-<span id="cb12-12"><a href="basic-programming-in-r.html#cb12-12" aria-hidden="true" tabindex="-1"></a>        data</span>
-<span id="cb12-13"><a href="basic-programming-in-r.html#cb12-13" aria-hidden="true" tabindex="-1"></a>        data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data, <span class="st">&quot;class&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb12-14"><a href="basic-programming-in-r.html#cb12-14" aria-hidden="true" tabindex="-1"></a>        data</span>
-<span id="cb12-15"><a href="basic-programming-in-r.html#cb12-15" aria-hidden="true" tabindex="-1"></a>        data[, <span class="dv">4</span>] <span class="co"># data[row index, column index]</span></span>
-<span id="cb12-16"><a href="basic-programming-in-r.html#cb12-16" aria-hidden="true" tabindex="-1"></a>        data<span class="sc">$</span>class <span class="co"># data$variable</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="basic-programming-in-r.html#cb16-1" aria-hidden="true" tabindex="-1"></a>        no <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">9</span>)</span>
+<span id="cb16-2"><a href="basic-programming-in-r.html#cb16-2" aria-hidden="true" tabindex="-1"></a>        name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;손흥민&quot;</span>, <span class="st">&quot;해리케인&quot;</span>, <span class="st">&quot;홀란드&quot;</span>)</span>
+<span id="cb16-3"><a href="basic-programming-in-r.html#cb16-3" aria-hidden="true" tabindex="-1"></a>        birth <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1992-07-08&quot;</span>, <span class="st">&quot;1993-07-28&quot;</span>, <span class="st">&quot;2000-07-21&quot;</span>)</span>
+<span id="cb16-4"><a href="basic-programming-in-r.html#cb16-4" aria-hidden="true" tabindex="-1"></a>        player <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">NO=</span>no, <span class="at">NAME=</span>name, <span class="at">BIRTH=</span>birth)</span>
+<span id="cb16-5"><a href="basic-programming-in-r.html#cb16-5" aria-hidden="true" tabindex="-1"></a>        player </span>
+<span id="cb16-6"><a href="basic-programming-in-r.html#cb16-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-7"><a href="basic-programming-in-r.html#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or </span></span>
+<span id="cb16-8"><a href="basic-programming-in-r.html#cb16-8" aria-hidden="true" tabindex="-1"></a>        m</span>
+<span id="cb16-9"><a href="basic-programming-in-r.html#cb16-9" aria-hidden="true" tabindex="-1"></a>        data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(m); data <span class="co"># Difference btw &#39;matrix&#39; and &#39;dataframe&#39; ? </span></span>
+<span id="cb16-10"><a href="basic-programming-in-r.html#cb16-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">colnames</span>(data)</span>
+<span id="cb16-11"><a href="basic-programming-in-r.html#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rownames</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>, <span class="st">&quot;N3&quot;</span>)</span>
+<span id="cb16-12"><a href="basic-programming-in-r.html#cb16-12" aria-hidden="true" tabindex="-1"></a>        data</span>
+<span id="cb16-13"><a href="basic-programming-in-r.html#cb16-13" aria-hidden="true" tabindex="-1"></a>        data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data, <span class="st">&quot;class&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb16-14"><a href="basic-programming-in-r.html#cb16-14" aria-hidden="true" tabindex="-1"></a>        data</span>
+<span id="cb16-15"><a href="basic-programming-in-r.html#cb16-15" aria-hidden="true" tabindex="-1"></a>        data[, <span class="dv">4</span>] <span class="co"># data[row index, column index]</span></span>
+<span id="cb16-16"><a href="basic-programming-in-r.html#cb16-16" aria-hidden="true" tabindex="-1"></a>        data<span class="sc">$</span>class <span class="co"># data$variable</span></span></code></pre></div>
+</div>
+<div id="정리" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> 정리<a href="basic-programming-in-r.html#정리" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>벡터, 행렬, 리스트, 데이터프레임 구조에 대해서 배웠습니다.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<img src="images/2-2.png" alt="벡터, 행렬, 리스트, 데이터프레임" width="100%" />
+<p class="caption">
+Figure 2.2: 벡터, 행렬, 리스트, 데이터프레임
+</p>
+</div>
+<p>벡터는 동일한 타입의 데이터 값들의 나열입니다. 벡터를 여러 겹 쌓으면 행렬이 됩니다. 따라서 행렬 또한 동일한 타입의 데이터들로 구성됩니다. 그리고 대표적인 데이터 타입으로는 숫자형, 문자형, 논리형 타입이 있었습니다.</p>
+<p>아래의 그림에서 퀴즈를 풀어보세요. 이 벡터는 어떤 데이터 타입이 나열된 벡터인가요?</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="images/2-4.png" alt="벡터와 행렬" width="100%" />
+<p class="caption">
+Figure 2.3: 벡터와 행렬
+</p>
+</div>
+<p>다양한 데이터 구조 중에서 우리가 가장 많이 접하는 것은 데이터프레임입니다. 그렇다면 벡터와 데이터프레임 간 관계는 어떤가요? 벡터는 데이터프레임을 이루는 기본 단위라고 볼 수 있습니다. 아래의 그림에서 벡터는 가로로 나열된 모습이지만, 세로로 나열한다고 상상해 보세요. 즉, 벡터를 <code>열 벡터</code>로 생각해 봅시다. 이 열 벡터는 데이터프레임의 변수가 됩니다.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="images/2-3.png" alt="벡터와 데이터프레임" width="100%" />
+<p class="caption">
+Figure 2.4: 벡터와 데이터프레임
+</p>
+</div>
+<p>앞으로 실습에서는 주로 데이터프레임을 다룰 것입니다. 참고로 데이터프레임 옆의 Indexing은 3.3 데이터 전처리 파트에서 자세히 다룰 예정입니다.</p>
 </div>
 </div>
 <div id="r-패키지와-라이브러리-r-packages-and-libraries" class="section level2 hasAnchor" number="2.5">
@@ -516,11 +535,11 @@ Figure 2.1: 변수 &lt;- 데이터
 <ol style="list-style-type: decimal">
 <li>명령어 직접 입력</li>
 </ol>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basic-programming-in-r.html#cb13-1" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb13-2"><a href="basic-programming-in-r.html#cb13-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
-<span id="cb13-3"><a href="basic-programming-in-r.html#cb13-3" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb13-4"><a href="basic-programming-in-r.html#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or</span></span>
-<span id="cb13-5"><a href="basic-programming-in-r.html#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(c(&quot;tidyverse&quot;, &quot;ggplot2&quot;))</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basic-programming-in-r.html#cb17-1" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb17-2"><a href="basic-programming-in-r.html#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb17-3"><a href="basic-programming-in-r.html#cb17-3" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-4"><a href="basic-programming-in-r.html#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or</span></span>
+<span id="cb17-5"><a href="basic-programming-in-r.html#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(c(&quot;tidyverse&quot;, &quot;ggplot2&quot;))</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>메뉴 이용</li>
 </ol>
@@ -539,14 +558,14 @@ Figure 2.1: 변수 &lt;- 데이터
 <ol style="list-style-type: decimal">
 <li>패키지 불러오기: 반드시 library(“패키지명”) 함수로 불러들임. R을 사용하다가 종료하고 다시 시작했을 경우에도 다시 library(“패키지명”)을 실행하여야 패키지 안에 여러 함수나 데이터들을 쓸 수 있음.</li>
 </ol>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basic-programming-in-r.html#cb14-1" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
-<span id="cb14-2"><a href="basic-programming-in-r.html#cb14-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
-<span id="cb14-3"><a href="basic-programming-in-r.html#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">#library(&quot;tidyverse&quot;)</span></span>
-<span id="cb14-4"><a href="basic-programming-in-r.html#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">#library(&quot;tidyverse&quot;)</span></span>
-<span id="cb14-5"><a href="basic-programming-in-r.html#cb14-5" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb14-6"><a href="basic-programming-in-r.html#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># update.packages(&quot;패키지명&quot;) # 설치되어 있는 해당 패키지 업데이트</span></span>
-<span id="cb14-7"><a href="basic-programming-in-r.html#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># installed.packages()        # 어떤 패키지들이 설치되어 있는지 확인</span></span>
-<span id="cb14-8"><a href="basic-programming-in-r.html#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># remove.packages(&quot;패키지명”) # 해당 패키지 삭제</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basic-programming-in-r.html#cb18-1" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;tidyverse&quot;)</span></span>
+<span id="cb18-2"><a href="basic-programming-in-r.html#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">#install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb18-3"><a href="basic-programming-in-r.html#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">#library(&quot;tidyverse&quot;)</span></span>
+<span id="cb18-4"><a href="basic-programming-in-r.html#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">#library(&quot;tidyverse&quot;)</span></span>
+<span id="cb18-5"><a href="basic-programming-in-r.html#cb18-5" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb18-6"><a href="basic-programming-in-r.html#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># update.packages(&quot;패키지명&quot;) # 설치되어 있는 해당 패키지 업데이트</span></span>
+<span id="cb18-7"><a href="basic-programming-in-r.html#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># installed.packages()        # 어떤 패키지들이 설치되어 있는지 확인</span></span>
+<span id="cb18-8"><a href="basic-programming-in-r.html#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># remove.packages(&quot;패키지명”) # 해당 패키지 삭제</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>자주 쓰이는 패키지 <strong>tidyverse</strong></li>
 </ol>

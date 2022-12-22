@@ -171,7 +171,7 @@ knitr::include_graphics("images/3-5.png")
           str(iris)
           glimpse(iris) # tidyverse 
 
-# 범주형 변수의 경우, table() 함수를 통해 빈도를 확인합니다. 
+        # 범주형 변수의 경우, table() 함수를 통해 빈도를 확인합니다. 
           table(iris$Species)
           
 ```
@@ -343,8 +343,7 @@ knitr::include_graphics("images/3-6.png")
 
 ```{r , results='hide', eval=FALSE}
   # Base R syntax: 
-  penguins_new$bill_area_mm <-
-  penguins_new$bill_depth_mm*penguins_new$bill_length_mm
+  penguins_new$body_mass_kg <- penguins_new$body_mass_g/1000
 ```
 
 **(3) 변수 범주화(categorizing; grouping)** 연속형 변수를 범주화해봅시다. 펭귄들의 body_mass_kg 변수의 분포를 살펴보세요. 중위값 이하의 경우 0의 값을, 중위값 초과의 경우 1의 값을 갖는 이항 변수로 범주화해주세요.
@@ -355,25 +354,27 @@ knitr::include_graphics("images/3-6.png")
   quantile(penguins_new$body_mass_kg) 
 
   # recoding 
-  penguins_new$body_mass_kg[penguins_new$body_mass_kg <= 4.050] = "중위값 이하"
-  penguins_new$body_mass_kg[penguins_new$body_mass_kg > 4.050] = "중위값 초과"
-
+  penguins_new$body_mass_kg[which(penguins_new$body_mass_kg <= 4.050)] = 0
+  penguins_new$body_mass_kg[which(penguins_new$body_mass_kg > 4.050)] = 1
+  
   # check 
   table(penguins_new$body_mass_kg)
+  
 ```
 
-이런 방식의 재부호화는 기존 변수 위에다 특정 조건에 부합하는 경우에만 특정 값을 덮어쓴다는 점에서 추천드리지 않습니다. 항상 전처리를 하실 때에는 원래 변수를 그래도 놔둔 채로 새로운 변수를 만들어 사용하는 편이 좋습니다. 하지만 base 함수를 이용하는 경우, 그 방식이 매우 복잡해 집니다. 일단 빈 깡통(벡터)을 하나 만들어 두고, 이 빈 깡통에 if else 구문을 사용하여 값을 하나씩 채워 넣습니다. 이후 값이 모두 채워진 벡터를 데이터의 새 변수로 붙여 쓰면 됩니다. 코드는 아래와 같습니다. 단, 이 코드를 이해하기 위해선 for 구문(loop), if else 구문 등의 함수 기능을 공부하셔야 하므로 참고만 해주시길 바랍니다.
+이런 방식의 재부호화는 기존 변수 위에다 특정 조건에 부합하는 경우에만 특정 값을 덮어쓴다는 점에서 추천드리지 않습니다. 항상 전처리를 하실 때에는 원래 변수를 그래도 놔둔 채로 새로운 변수를 만들어 사용하는 편이 좋습니다. 하지만 base 함수를 이용하는 경우, 그 방식이 매우 복잡해 집니다. 일단 빈 깡통(벡터)을 하나 만들어 두고, 이 빈 깡통에 if else 구문을 사용하여 값을 하나씩 채워 넣습니다. 이후 값이 모두 채워진 벡터를 데이터의 새 변수로 붙여 쓰면 됩니다. 코드는 아래와 같습니다. body_mass_kg 변수는 이미 앞선 코드에서 그 값이 변경되었으므로, body_mass_g를 기준으로 이항 변수를 만들어 주었습니다. 단, 이 코드를 이해하기 위해선 for 구문(loop), if else 구문 등의 함수 기능을 공부하셔야 하므로 참고만 해주시길 바랍니다.
 
 ```{r , results='hide', eval=FALSE}
    body_mass_group = c() # 빈 깡통 만들기 
 
    # for 구문 + if else 구문 혼합하여 빈 깡통에 값 채워넣기 
    for(i in 1:nrow(penguins_new)){
-   if(penguins_new$body_mass_kg [i] <= 4.050){
-      body_mass_group[i] = "중위값 이하"
-      }else{
-      body_mass_group[i] = "중위값 초과"
-      }}
+     if(penguins_new$body_mass_g[i] <= 4050){
+       body_mass_group[i] = 0
+       }else{ 
+         body_mass_group[i] = 1
+       }
+     }
 
    penguins_new$body_mass_group = body_mass_group # 값이 채워진 벡터를 새로운 변수로                                                     할당 
 
@@ -388,8 +389,8 @@ knitr::include_graphics("images/3-6.png")
 ```{r , results='hide', eval=FALSE}
    # Tidyverse 
    penguins %>% # 분석 대상이 되는 데이터 
-   drop_na()  %>% # 결측치 처리 
-   mutate(bill_area_mm = bill_depth_mm*bill_length_mm, # 부리 면적 변수 생성
+    drop_na()  %>% # 결측치 처리 
+    mutate(bill_area_mm = bill_depth_mm*bill_length_mm, # 부리 면적 변수 생성
          body_mass_kg = body_mass_g/1000, # 무게 kg 단위로 바꾼 변수 생성 
          body_mass_group = ifelse(body_mass_kg > median(body_mass_kg), "중위값    초과", "중위값 이하")
 				 ) -> penguins_new_tidy # 새 데이터로 저장 

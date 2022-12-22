@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Data Management | KOSSDA Introduction to R</title>
   <meta name="description" content="Chapter 3 Data Management | KOSSDA Introduction to R" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Data Management | KOSSDA Introduction to R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Do Won Kim, Hyowon Kim" />
 
 
-<meta name="date" content="2022-12-11" />
+<meta name="date" content="2022-12-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#숫자형-데이터numeric"><i class="fa fa-check"></i><b>2.2.1</b> 숫자형 데이터(numeric)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#문자형-데이터characterstringtext"><i class="fa fa-check"></i><b>2.2.2</b> 문자형 데이터(character/string/text)</a></li>
 <li class="chapter" data-level="2.2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#날짜형-데이터-as.date"><i class="fa fa-check"></i><b>2.2.3</b> 날짜형 데이터 <code>as.Date()</code></a></li>
-<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.4</b> 논리형 데이터(logical: True or False)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.4</b> 논리형 데이터(logical: TRUE or FALSE)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#변수-유형-variable-type"><i class="fa fa-check"></i><b>2.3</b> 변수 유형 <strong><em>Variable type</em></strong></a></li>
 <li class="chapter" data-level="2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-구조-data-structure"><i class="fa fa-check"></i><b>2.4</b> 데이터 구조 <strong><em>Data structure</em></strong></a>
@@ -154,6 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#행렬matrix"><i class="fa fa-check"></i><b>2.4.2</b> 행렬(Matrix)</a></li>
 <li class="chapter" data-level="2.4.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#리스트list"><i class="fa fa-check"></i><b>2.4.3</b> 리스트(List)</a></li>
 <li class="chapter" data-level="2.4.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-프레임data-frame"><i class="fa fa-check"></i><b>2.4.4</b> 데이터 프레임(Data Frame)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#정리"><i class="fa fa-check"></i><b>2.4.5</b> 정리</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#r-패키지와-라이브러리-r-packages-and-libraries"><i class="fa fa-check"></i><b>2.5</b> R 패키지와 라이브러리 <strong><em>R packages and libraries</em></strong></a>
 <ul>
@@ -374,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-6"><a href="data-management.html#cb11-6" aria-hidden="true" tabindex="-1"></a>          <span class="fu">str</span>(iris)</span>
 <span id="cb11-7"><a href="data-management.html#cb11-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">glimpse</span>(iris) <span class="co"># tidyverse </span></span>
 <span id="cb11-8"><a href="data-management.html#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="data-management.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 범주형 변수의 경우, table() 함수를 통해 빈도를 확인합니다. </span></span>
+<span id="cb11-9"><a href="data-management.html#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 범주형 변수의 경우, table() 함수를 통해 빈도를 확인합니다. </span></span>
 <span id="cb11-10"><a href="data-management.html#cb11-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">table</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
 <p>데이터가 어떻게 생겼는지 확인한 후에는, 분석에 용이한 형태로 원 데이터(raw data)를 가공하는 작업이 필요합니다. 이를 데이터 전처리(data pre-processing)이라고 합니다. R에서 기본으로 제공하는 base 함수들을 활용한 전처리를 먼저 배우고, tidyverse 패키지를 활용한 간편한 전처리를 배우도록 하겠습니다.</p>
 <div id="indexing-데이터프레임에서-원하는-행-열-추출하기" class="section level3 hasAnchor" number="3.3.1">
@@ -511,42 +512,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-2"><a href="data-management.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>bill_area_mm <span class="ot">&lt;-</span> penguins_new<span class="sc">$</span>bill_depth_mm <span class="sc">*</span>  penguins_new<span class="sc">$</span>bill_length_mm</span></code></pre></div>
 <p>펭귄들의 body mass는 현재 gram 단위로 되어 있습니다. 이를 kg 단위로 바꿔 새로운 변수로 저장해 주세요.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-management.html#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Base R syntax: </span></span>
-<span id="cb19-2"><a href="data-management.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>bill_area_mm <span class="ot">&lt;-</span></span>
-<span id="cb19-3"><a href="data-management.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>bill_depth_mm<span class="sc">*</span>penguins_new<span class="sc">$</span>bill_length_mm</span></code></pre></div>
+<span id="cb19-2"><a href="data-management.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>body_mass_kg <span class="ot">&lt;-</span> penguins_new<span class="sc">$</span>body_mass_g<span class="sc">/</span><span class="dv">1000</span></span></code></pre></div>
 <p><strong>(3) 변수 범주화(categorizing; grouping)</strong> 연속형 변수를 범주화해봅시다. 펭귄들의 body_mass_kg 변수의 분포를 살펴보세요. 중위값 이하의 경우 0의 값을, 중위값 초과의 경우 1의 값을 갖는 이항 변수로 범주화해주세요.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-management.html#cb20-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 분포 확인 </span></span>
 <span id="cb20-2"><a href="data-management.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(penguins_new<span class="sc">$</span>body_mass_kg) </span>
 <span id="cb20-3"><a href="data-management.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quantile</span>(penguins_new<span class="sc">$</span>body_mass_kg) </span>
 <span id="cb20-4"><a href="data-management.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="data-management.html#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># recoding </span></span>
-<span id="cb20-6"><a href="data-management.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>body_mass_kg[penguins_new<span class="sc">$</span>body_mass_kg <span class="sc">&lt;=</span> <span class="fl">4.050</span>] <span class="ot">=</span> <span class="st">&quot;중위값 이하&quot;</span></span>
-<span id="cb20-7"><a href="data-management.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>body_mass_kg[penguins_new<span class="sc">$</span>body_mass_kg <span class="sc">&gt;</span> <span class="fl">4.050</span>] <span class="ot">=</span> <span class="st">&quot;중위값 초과&quot;</span></span>
-<span id="cb20-8"><a href="data-management.html#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="data-management.html#cb20-6" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>body_mass_kg[<span class="fu">which</span>(penguins_new<span class="sc">$</span>body_mass_kg <span class="sc">&lt;=</span> <span class="fl">4.050</span>)] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb20-7"><a href="data-management.html#cb20-7" aria-hidden="true" tabindex="-1"></a>  penguins_new<span class="sc">$</span>body_mass_kg[<span class="fu">which</span>(penguins_new<span class="sc">$</span>body_mass_kg <span class="sc">&gt;</span> <span class="fl">4.050</span>)] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb20-8"><a href="data-management.html#cb20-8" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb20-9"><a href="data-management.html#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># check </span></span>
 <span id="cb20-10"><a href="data-management.html#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(penguins_new<span class="sc">$</span>body_mass_kg)</span></code></pre></div>
-<p>이런 방식의 재부호화는 기존 변수 위에다 특정 조건에 부합하는 경우에만 특정 값을 덮어쓴다는 점에서 추천드리지 않습니다. 항상 전처리를 하실 때에는 원래 변수를 그래도 놔둔 채로 새로운 변수를 만들어 사용하는 편이 좋습니다. 하지만 base 함수를 이용하는 경우, 그 방식이 매우 복잡해 집니다. 일단 빈 깡통(벡터)을 하나 만들어 두고, 이 빈 깡통에 if else 구문을 사용하여 값을 하나씩 채워 넣습니다. 이후 값이 모두 채워진 벡터를 데이터의 새 변수로 붙여 쓰면 됩니다. 코드는 아래와 같습니다. 단, 이 코드를 이해하기 위해선 for 구문(loop), if else 구문 등의 함수 기능을 공부하셔야 하므로 참고만 해주시길 바랍니다.</p>
+<p>이런 방식의 재부호화는 기존 변수 위에다 특정 조건에 부합하는 경우에만 특정 값을 덮어쓴다는 점에서 추천드리지 않습니다. 항상 전처리를 하실 때에는 원래 변수를 그래도 놔둔 채로 새로운 변수를 만들어 사용하는 편이 좋습니다. 하지만 base 함수를 이용하는 경우, 그 방식이 매우 복잡해 집니다. 일단 빈 깡통(벡터)을 하나 만들어 두고, 이 빈 깡통에 if else 구문을 사용하여 값을 하나씩 채워 넣습니다. 이후 값이 모두 채워진 벡터를 데이터의 새 변수로 붙여 쓰면 됩니다. 코드는 아래와 같습니다. body_mass_kg 변수는 이미 앞선 코드에서 그 값이 변경되었으므로, body_mass_g를 기준으로 이항 변수를 만들어 주었습니다. 단, 이 코드를 이해하기 위해선 for 구문(loop), if else 구문 등의 함수 기능을 공부하셔야 하므로 참고만 해주시길 바랍니다.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-management.html#cb21-1" aria-hidden="true" tabindex="-1"></a>   body_mass_group <span class="ot">=</span> <span class="fu">c</span>() <span class="co"># 빈 깡통 만들기 </span></span>
 <span id="cb21-2"><a href="data-management.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="data-management.html#cb21-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># for 구문 + if else 구문 혼합하여 빈 깡통에 값 채워넣기 </span></span>
 <span id="cb21-4"><a href="data-management.html#cb21-4" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(penguins_new)){</span>
-<span id="cb21-5"><a href="data-management.html#cb21-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(penguins_new<span class="sc">$</span>body_mass_kg [i] <span class="sc">&lt;=</span> <span class="fl">4.050</span>){</span>
-<span id="cb21-6"><a href="data-management.html#cb21-6" aria-hidden="true" tabindex="-1"></a>      body_mass_group[i] <span class="ot">=</span> <span class="st">&quot;중위값 이하&quot;</span></span>
-<span id="cb21-7"><a href="data-management.html#cb21-7" aria-hidden="true" tabindex="-1"></a>      }<span class="cf">else</span>{</span>
-<span id="cb21-8"><a href="data-management.html#cb21-8" aria-hidden="true" tabindex="-1"></a>      body_mass_group[i] <span class="ot">=</span> <span class="st">&quot;중위값 초과&quot;</span></span>
-<span id="cb21-9"><a href="data-management.html#cb21-9" aria-hidden="true" tabindex="-1"></a>      }}</span>
-<span id="cb21-10"><a href="data-management.html#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="data-management.html#cb21-11" aria-hidden="true" tabindex="-1"></a>   penguins_new<span class="sc">$</span>body_mass_group <span class="ot">=</span> body_mass_group <span class="co"># 값이 채워진 벡터를 새로운 변수로                                                     할당 </span></span>
-<span id="cb21-12"><a href="data-management.html#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="data-management.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 확인</span></span>
-<span id="cb21-14"><a href="data-management.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(penguins_new<span class="sc">$</span>body_mass_group) </span></code></pre></div>
+<span id="cb21-5"><a href="data-management.html#cb21-5" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span>(penguins_new<span class="sc">$</span>body_mass_g[i] <span class="sc">&lt;=</span> <span class="dv">4050</span>){</span>
+<span id="cb21-6"><a href="data-management.html#cb21-6" aria-hidden="true" tabindex="-1"></a>       body_mass_group[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb21-7"><a href="data-management.html#cb21-7" aria-hidden="true" tabindex="-1"></a>       }<span class="cf">else</span>{ </span>
+<span id="cb21-8"><a href="data-management.html#cb21-8" aria-hidden="true" tabindex="-1"></a>         body_mass_group[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb21-9"><a href="data-management.html#cb21-9" aria-hidden="true" tabindex="-1"></a>       }</span>
+<span id="cb21-10"><a href="data-management.html#cb21-10" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb21-11"><a href="data-management.html#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="data-management.html#cb21-12" aria-hidden="true" tabindex="-1"></a>   penguins_new<span class="sc">$</span>body_mass_group <span class="ot">=</span> body_mass_group <span class="co"># 값이 채워진 벡터를 새로운 변수로                                                     할당 </span></span>
+<span id="cb21-13"><a href="data-management.html#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="data-management.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 확인</span></span>
+<span id="cb21-15"><a href="data-management.html#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(penguins_new<span class="sc">$</span>body_mass_group) </span></code></pre></div>
 </div>
 <div id="tidyverse-1" class="section level4 hasAnchor" number="3.3.2.2">
 <h4><span class="header-section-number">3.3.2.2</span> Tidyverse<a href="data-management.html#tidyverse-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>이제까지 <strong>(1) 결측치 처리</strong>, <strong>(2) 새 변수 만들기</strong>, 그리고 <strong>(3) 범주화</strong>를 R의 base syntax 만으로 해보았습니다. 이렇게 어떤 패키지를 불러오지 않더라도 base 함수만으로도 분석이 가능하긴 합니다만, 더 효율적이고 쉬운 방법이 있습니다. Tidyverse를 사용하여 동일한 분석을 한번에 진행해 보겠습니다. 이 패키지의 가장 큰 장점은 %&gt;% (pipe operator; |&gt; 도 가능)을 통한 연속적이고 효율적인 코딩입니다. Tidyverse문법에서는 변수 전처리를 할 때 mutate() 를 사용해 줍니다. 또한 ’빈 깡통을 만들고 → for loop, if else 구문을 조합하여 값을 채워 넣고 → 값을 채운 벡터를 새로운 변수로 할당’하는 과정을 더 단순화해주는 ifelse() 함수도 Tidyverse 를 사용하는 큰 이유 중 하나입니다.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-management.html#cb22-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Tidyverse </span></span>
 <span id="cb22-2"><a href="data-management.html#cb22-2" aria-hidden="true" tabindex="-1"></a>   penguins <span class="sc">%&gt;%</span> <span class="co"># 분석 대상이 되는 데이터 </span></span>
-<span id="cb22-3"><a href="data-management.html#cb22-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">drop_na</span>()  <span class="sc">%&gt;%</span> <span class="co"># 결측치 처리 </span></span>
-<span id="cb22-4"><a href="data-management.html#cb22-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">bill_area_mm =</span> bill_depth_mm<span class="sc">*</span>bill_length_mm, <span class="co"># 부리 면적 변수 생성</span></span>
+<span id="cb22-3"><a href="data-management.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>()  <span class="sc">%&gt;%</span> <span class="co"># 결측치 처리 </span></span>
+<span id="cb22-4"><a href="data-management.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">bill_area_mm =</span> bill_depth_mm<span class="sc">*</span>bill_length_mm, <span class="co"># 부리 면적 변수 생성</span></span>
 <span id="cb22-5"><a href="data-management.html#cb22-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">body_mass_kg =</span> body_mass_g<span class="sc">/</span><span class="dv">1000</span>, <span class="co"># 무게 kg 단위로 바꾼 변수 생성 </span></span>
 <span id="cb22-6"><a href="data-management.html#cb22-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">body_mass_group =</span> <span class="fu">ifelse</span>(body_mass_kg <span class="sc">&gt;</span> <span class="fu">median</span>(body_mass_kg), <span class="st">&quot;중위값    초과&quot;</span>, <span class="st">&quot;중위값 이하&quot;</span>)</span>
 <span id="cb22-7"><a href="data-management.html#cb22-7" aria-hidden="true" tabindex="-1"></a>                 ) <span class="ot">-&gt;</span> penguins_new_tidy <span class="co"># 새 데이터로 저장 </span></span>

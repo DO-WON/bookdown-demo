@@ -32,3 +32,9 @@ r-base-plot
 tidyverse---ggplot2
 further-tips
 fig:unnamed-chunk-2
+fig:unnamed-chunk-3
+데이터-구조-한-눈에-보기
+fig:unnamed-chunk-14
+fig:unnamed-chunk-15
+fig:unnamed-chunk-16
+정리

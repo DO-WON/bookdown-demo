@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Visualizastion in R | KOSSDA Introduction to R</title>
   <meta name="description" content="Chapter 4 Visualizastion in R | KOSSDA Introduction to R" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Visualizastion in R | KOSSDA Introduction to R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Do Won Kim, Hyowon Kim" />
 
 
-<meta name="date" content="2022-12-11" />
+<meta name="date" content="2022-12-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,7 +145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#숫자형-데이터numeric"><i class="fa fa-check"></i><b>2.2.1</b> 숫자형 데이터(numeric)</a></li>
 <li class="chapter" data-level="2.2.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#문자형-데이터characterstringtext"><i class="fa fa-check"></i><b>2.2.2</b> 문자형 데이터(character/string/text)</a></li>
 <li class="chapter" data-level="2.2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#날짜형-데이터-as.date"><i class="fa fa-check"></i><b>2.2.3</b> 날짜형 데이터 <code>as.Date()</code></a></li>
-<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.4</b> 논리형 데이터(logical: True or False)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#논리형-데이터logical-true-or-false"><i class="fa fa-check"></i><b>2.2.4</b> 논리형 데이터(logical: TRUE or FALSE)</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#변수-유형-variable-type"><i class="fa fa-check"></i><b>2.3</b> 변수 유형 <strong><em>Variable type</em></strong></a></li>
 <li class="chapter" data-level="2.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-구조-data-structure"><i class="fa fa-check"></i><b>2.4</b> 데이터 구조 <strong><em>Data structure</em></strong></a>
@@ -154,6 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.2" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#행렬matrix"><i class="fa fa-check"></i><b>2.4.2</b> 행렬(Matrix)</a></li>
 <li class="chapter" data-level="2.4.3" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#리스트list"><i class="fa fa-check"></i><b>2.4.3</b> 리스트(List)</a></li>
 <li class="chapter" data-level="2.4.4" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#데이터-프레임data-frame"><i class="fa fa-check"></i><b>2.4.4</b> 데이터 프레임(Data Frame)</a></li>
+<li class="chapter" data-level="2.4.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#정리"><i class="fa fa-check"></i><b>2.4.5</b> 정리</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="basic-programming-in-r.html"><a href="basic-programming-in-r.html#r-패키지와-라이브러리-r-packages-and-libraries"><i class="fa fa-check"></i><b>2.5</b> R 패키지와 라이브러리 <strong><em>R packages and libraries</em></strong></a>
 <ul>
@@ -248,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="tidyverse---ggplot2" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> <strong><em>Tidyverse - ggplot2</em></strong><a href="visualizastion-in-r.html#tidyverse---ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>다음은<strong><code>tidyverse</code></strong>의 <code>ggplot2</code> 를 통한 시각화를 연습해 보겠습니다. <code>ggplot2</code>의 “<em>GG”는 Gramar of Graphics</em> 를 의미합니다. <code>%&gt;%</code> (파이프 연산자)를 통해 층을 겹겹이 쌓아올려 효율적인 시각화가 가능하며, 여러가지 테마를 적용하여 customize할 수 있다는 점이 장점입니다 (반대로 말하면, 자유도가 높다는 게 처음 배울 때 진입장벽으로 작용할 수 있습니다). 하나씩 천천히 해봅시다!</p>
+<p>다음은<strong><code>tidyverse</code></strong>의 <code>ggplot2</code> 를 통한 시각화를 연습해 보겠습니다. <code>ggplot2</code>의 “<em>GG</em>”는 <em>Grammar of Graphics</em>를 의미합니다. <code>%&gt;%</code> (파이프 연산자)를 통해 층을 겹겹이 쌓아올려 효율적인 시각화가 가능하며, 여러가지 테마를 적용하여 customize할 수 있다는 점이 장점입니다 (반대로 말하면, 자유도가 높다는 게 처음 배울 때 진입장벽으로 작용할 수 있습니다). 하나씩 천천히 해봅시다!</p>
 <p>기본적인 문법 구조는 다음과 같습니다:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="visualizastion-in-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#데이터 </span></span>
 <span id="cb6-2"><a href="visualizastion-in-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> </span>
@@ -326,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-2"><a href="visualizastion-in-r.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent, <span class="at">y=</span>lifeExp, <span class="at">fill=</span>continent)) <span class="sc">+</span> </span>
 <span id="cb12-3"><a href="visualizastion-in-r.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb12-4"><a href="visualizastion-in-r.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb12-5"><a href="visualizastion-in-r.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="er">)</span></span></code></pre></div>
+<span id="cb12-5"><a href="visualizastion-in-r.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="images/4-11.png" width="80%" style="display: block; margin: auto;" /></p>
 
 </div>
