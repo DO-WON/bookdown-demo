@@ -7,7 +7,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/DO-WON/KOSSDA_Intro-to-R" target="blank">Github Version</a></li>
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
-    download: ["pdf", "epub"]
+    download:
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
